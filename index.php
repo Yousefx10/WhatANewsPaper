@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+        <div class="container">
         <div class="header">
 
             <table border="1px">
@@ -51,6 +52,7 @@
         Enjoy Reading
         </div>
 
+        </div>
 <script>
         function updateTime() {
             const now = new Date();
