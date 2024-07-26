@@ -11,26 +11,30 @@
         <div class="container">
         <div class="header">
 
-            <table border="1px">
-                <tr>
-                    <td>Maybe Logo</td>
-                    <td></td>
-                    <td id="date">Full Date</td>
-                </tr>
 
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td id="time">Full Time</td>
-                </tr>
 
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td id="day">Full Day</td>
-                </tr>   
-            </table>
+
+    <div class="tabletext">
+        <div class="left" >----</div>
+        <div class="right" id="date">Text on the right</div>
+    </div>
+
+    <div class="tabletext">
+        <div class="left" >----</div>
+        <div class="right" id="time">Text on the right</div>
+    </div>
+
+    <div class="tabletext">
+        <div class="left" >----</div>
+        <div class="right" id="day">Text on the right</div>
+    </div>
+
+
+
+
         </div>
+
+
 
 
         <div class="nav">
@@ -52,7 +56,23 @@
         Enjoy Reading
         </div>
 
+
+
+
+
+
+
+
         </div>
+
+
+
+
+
+        
+
+
+
 <script>
         function updateTime() {
             const now = new Date();
@@ -66,11 +86,7 @@
             document.getElementById('time').textContent = formattedTime;
         }
 
-
-
-
-
-
+        
 
         function getDayName() {
             const now = new Date();

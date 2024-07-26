@@ -1,7 +1,7 @@
 body{margin:0}
 
 .container {
-    width: 98%;
+    width: 95%;
     max-width: 1800px;
     margin: 0 auto;
     padding: 20px;
@@ -10,8 +10,39 @@ body{margin:0}
     border: 1px solid #ddd;
 }
 
-.header {height: 100px;text-align: center;}
-.header table{width: 100%;}
+.header {height: 100px;text-align: center; width: 80%;margin:auto;}
+
+
+.tabletext {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+}
+.left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 150px; 
+
+}
+.right {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 150px; 
+
+}
+
+
+
+
+
+
 
 
 .nav {text-align: center;}
