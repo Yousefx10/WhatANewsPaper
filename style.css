@@ -1,4 +1,7 @@
 .header {height: 100px;text-align: center;}
+.header table{width: 100%;}
+
+
 .nav {text-align: center;}
 .nav h1{color: green;margin-top: 0;}
 
@@ -18,7 +21,7 @@
     line-height: 50%;
 
     }
-    
+
 .nav .btn span:hover{
     background-color: bisque;
     border-bottom: 5px solid MidnightBlue;

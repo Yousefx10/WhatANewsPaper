@@ -8,6 +8,27 @@
     </head>
     <body>
         <div class="header">
+
+            <table>
+                <tr>
+                    <td>Maybe Logo</td>
+                    <td></td>
+                    <td>Full Date</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Full Day</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Full Time</td>
+                </tr>   
+            </table>
+
             <span>Just Displaying Some Short Information</span>
         </div>
 
