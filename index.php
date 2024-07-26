@@ -10,7 +10,7 @@
     <body>
         <div class="header">
 
-            <table>
+            <table border="1px">
                 <tr>
                     <td>Maybe Logo</td>
                     <td></td>
@@ -29,8 +29,6 @@
                     <td id="day">Full Day</td>
                 </tr>   
             </table>
-
-            <span>Just Displaying Some Short Information</span>
         </div>
 
 
@@ -43,7 +41,7 @@
                 <span>Sport</span>
                 <span>Breaking News</span>
                 <span>Business</span>
-                <span>Account</span>
+                <span>Stories</span>
             </div>
         </div>
 
