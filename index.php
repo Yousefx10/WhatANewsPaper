@@ -15,18 +15,18 @@
 
 
     <div class="tabletext">
-        <div class="left" >----</div>
-        <div class="right" id="date">Text on the right</div>
+        <div class="left" >;</div>
+        <div class="right" id="date">--</div>
     </div>
 
     <div class="tabletext">
-        <div class="left" >----</div>
-        <div class="right" id="time">Text on the right</div>
+    <div class="left" >Ads ?&check;</div>
+        <div class="right" id="time">--</div>
     </div>
 
     <div class="tabletext">
-        <div class="left" >----</div>
-        <div class="right" id="day">Text on the right</div>
+    <div class="left" >Dark Theme?&times;</div>
+        <div class="right" id="day">--</div>
     </div>
 
 
