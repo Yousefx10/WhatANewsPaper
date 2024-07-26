@@ -21,6 +21,11 @@ body{margin:0;    background-color: #f4f4f4;}
 }
 .left {
     text-align: left;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    width: 150px;  */
 
 }
 .right {
@@ -29,7 +34,7 @@ body{margin:0;    background-color: #f4f4f4;}
     flex-direction: column;
     justify-content: center;
 
-    /* width: 150px;  */
+    width: 150px; 
 
 }
 
