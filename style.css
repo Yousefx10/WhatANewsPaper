@@ -1,3 +1,43 @@
 .header {height: 100px;text-align: center;}
 .nav {text-align: center;}
-.nav h1{color: green;}
+.nav h1{color: green;margin-top: 0;}
+
+
+
+.nav .btn span{
+    display: inline-block;
+    border: 1px solid #000;
+    border-bottom: 5px solid #000;
+    padding: 10px;
+    margin:10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 10px;
+    align-items: center;
+    line-height: 50%;
+
+    }
+    
+.nav .btn span:hover{
+    background-color: bisque;
+    border-bottom: 5px solid MidnightBlue;
+}
+
+
+
+
+.title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.title::before,.title::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #000;
+    margin: 0 10px;
+}
+  
