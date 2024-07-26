@@ -38,11 +38,11 @@
             <h1>What A News Papers</h1>
 
             <div class="nav btn">
-                <span>Nav 1</span>
-                <span>Nav 2</span>
-                <span>Nav 3</span>
-                <span>Nav 4</span>
-                <span>Nav 5</span>
+                <span>World</span>
+                <span>Sport</span>
+                <span>Breaking News</span>
+                <span>Business</span>
+                <span>Account</span>
             </div>
         </div>
 
