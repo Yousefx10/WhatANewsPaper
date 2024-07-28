@@ -37,7 +37,10 @@ echo "try to login <br/>";
                 echo "Login successful. Welcome, " . $_SESSION['username'] . "!";
         
                 $_SESSION['loggedin'] = true;
-        
+                header('Location: ' . $_SERVER['PHP_SELF']);
+                $conn->close();
+                exit();
+
             } 
             else {echo "Invalid password.";$_SESSION['loggedin'] = false;}
         } 
@@ -80,7 +83,7 @@ echo "<br/>wow";
     <body>
     <?php  
      $cssresult = ($_SESSION['loggedin']);
-        
+
     if(!$cssresult)
      echo '<div style="display:block;">
     <h2>Login</h2>
@@ -95,6 +98,11 @@ echo "<br/>wow";
 
         <input type="submit" value="Login">
     </form>
+</div>';
+else
+echo '<div>
+<h3>Start Control Your Page</h3>
+<input type="text"/>
 </div>';
     
     ?>
