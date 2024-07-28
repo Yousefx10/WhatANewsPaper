@@ -4,16 +4,19 @@ echo "Dashboard Menu<br/>";
 session_start();
 
 
-
 require "sql.php";
 
 
-if (isset($_SESSION['loggedin'])) {
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
     echo "User is logged in";
+    $_SESSION['loggedin'] = true;
+    echo "- in";
 } else {
-    $_SESSION['loggedin'] = false;
 
+
+    $_SESSION['loggedin'] = false;
+echo "what";
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -35,10 +38,9 @@ if (isset($_SESSION['loggedin'])) {
                 echo "Login successful. Welcome, " . $_SESSION['username'] . "!";
         
                 $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $username;
         
             } 
-            else {echo "Invalid password.";}
+            else {echo "Invalid password.";$_SESSION['loggedin'] = false;}
         } 
         
         else { echo "No user found with that username.";}
@@ -75,7 +77,6 @@ echo "<br/>wow";
         <title>Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
 
