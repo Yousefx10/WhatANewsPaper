@@ -1,15 +1,14 @@
 <?php
 
-echo "Dashboard Menu";
+echo "Dashboard Menu<br/>";
 session_start();
+$_SESSION['loggedin'] = false;
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "whatanewspaper";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+require "sql.php";
+
+
+
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -32,6 +31,10 @@ if ($result->num_rows > 0) {
         $_SESSION['username'] = $row['username'];
         $_SESSION['user_id'] = $row['id'];
         echo "Login successful. Welcome, " . $_SESSION['username'] . "!";
+
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+
     } else {
         echo "Invalid password.";
     }
@@ -64,7 +67,7 @@ echo "<br/>wow";
     </head>
     <body>
 
-
+<div style="display: <?php  echo $cssresult = ($_SESSION['loggedin']==true)? 'none':'block';?>;">
     <h2>Login</h2>
     <form action="dashboard.php" method="post">
         <label for="username">Username:</label><br>
@@ -77,7 +80,7 @@ echo "<br/>wow";
 
         <input type="submit" value="Login">
     </form>
-
+</div>
 
 
 
