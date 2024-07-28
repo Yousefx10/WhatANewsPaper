@@ -3,20 +3,19 @@
 echo "Dashboard Menu<br/>";
 session_start();
 
-
 require "sql.php";
 
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
-    echo "User is logged in";
+    echo "User is logged in<br/>";
     $_SESSION['loggedin'] = true;
-    echo "- in";
+
 } else {
 
 
     $_SESSION['loggedin'] = false;
-echo "what";
+echo "try to login <br/>";
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -79,8 +78,11 @@ echo "<br/>wow";
 
     </head>
     <body>
-
-<div style="display: <?php  echo $cssresult = ($_SESSION['loggedin']==true)? 'none':'block';?>;">
+    <?php  
+     $cssresult = ($_SESSION['loggedin']);
+        
+    if(!$cssresult)
+     echo '<div style="display:block;">
     <h2>Login</h2>
     <form action="dashboard.php" method="post">
         <label for="username">Username:</label><br>
@@ -93,7 +95,10 @@ echo "<br/>wow";
 
         <input type="submit" value="Login">
     </form>
-</div>
+</div>';
+    
+    ?>
+
 
 
 
