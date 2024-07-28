@@ -4,16 +4,17 @@ echo "Dashboard Menu";
 session_start();
 
 // Database connection
-$servername = "your_server_name";
-$username = "your_username";
-$password = "your_password";
-$dbname = "your_database_name";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "whatanewspaper";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Fetching and sanitizing user input
 $user = mysqli_real_escape_string($conn, $_POST['username']);
@@ -38,8 +39,19 @@ if ($result->num_rows > 0) {
     echo "No user found with that username.";
 }
 
+}
 $conn->close();
+//$2y$10$frdlWIo7DeGfCIxwy2xO9uu7Dxqnz4qCy.4tHfnKOuLo8vIsKWehG
+//password@123
+//echo password_hash("password@123", PASSWORD_DEFAULT);
 
+
+/*
+echo"<br/>";
+
+if( password_verify("testing", password_hash("testing", PASSWORD_DEFAULT) ));
+echo "<br/>wow";
+*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,12 +64,17 @@ $conn->close();
     </head>
     <body>
 
+
     <h2>Login</h2>
-    <form action="login.php" method="post">
+    <form action="dashboard.php" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
+
+
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br><br>
+
+
         <input type="submit" value="Login">
     </form>
 
