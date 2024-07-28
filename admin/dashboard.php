@@ -2,48 +2,60 @@
 
 echo "Dashboard Menu<br/>";
 session_start();
-$_SESSION['loggedin'] = false;
+
 
 
 require "sql.php";
 
 
+if (isset($_SESSION['loggedin'])) {
 
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-// Fetching and sanitizing user input
-$user = mysqli_real_escape_string($conn, $_POST['username']);
-$pass = mysqli_real_escape_string($conn, $_POST['password']);
-
-// Query to fetch user details
-$sql = "SELECT * FROM users WHERE username='$user'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    // Verifying password
-    if (password_verify($pass, $row['password'])) {
-        // Storing session variables
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['user_id'] = $row['id'];
-        echo "Login successful. Welcome, " . $_SESSION['username'] . "!";
-
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
-
-    } else {
-        echo "Invalid password.";
-    }
+    echo "User is logged in";
 } else {
-    echo "No user found with that username.";
-}
+    $_SESSION['loggedin'] = false;
+
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        // Fetching and sanitizing user input
+        $user = mysqli_real_escape_string($conn, $_POST['username']);
+        $pass = mysqli_real_escape_string($conn, $_POST['password']);
+        
+        // Query to fetch user details
+        $sql = "SELECT * FROM users WHERE username='$user'";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            // Verifying password
+            if (password_verify($pass, $row['password'])) {
+                // Storing session variables
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['user_id'] = $row['id'];
+                echo "Login successful. Welcome, " . $_SESSION['username'] . "!";
+        
+                $_SESSION['loggedin'] = true;
+                $_SESSION['username'] = $username;
+        
+            } 
+            else {echo "Invalid password.";}
+        } 
+        
+        else { echo "No user found with that username.";}
+        
+        }
+        
+        
+        $conn->close();
+
 
 }
-$conn->close();
+
+
+
+
+
+
 //$2y$10$frdlWIo7DeGfCIxwy2xO9uu7Dxqnz4qCy.4tHfnKOuLo8vIsKWehG
 //password@123
 //echo password_hash("password@123", PASSWORD_DEFAULT);
