@@ -78,7 +78,7 @@ echo "<br/>wow";
         <meta charset="UTF-8"/>
         <title>Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="stylesheet" href="admin_style.css"/>
     </head>
     <body>
     <?php  
@@ -107,6 +107,17 @@ echo '<div>
     
     ?>
 
+
+<div id="side_panel">
+<button>Clicks</button>
+<button>Clicks</button>
+<button>Clicks</button>
+<button>Clicks</button>
+<button>Clicks</button>
+<button>Clicks</button>
+<button>Clicks</button>
+</div>
+<span class="float_clear"></span>
 
 
 
