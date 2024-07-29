@@ -41,6 +41,11 @@ body{margin:0;
 .sub_button{
     background-color: lightsteelblue;
     padding: 2px !important;
+    width: 200px !important;
+}
+
+#sub_div button:last-child {
+    margin-bottom: 25px !important;
 }
 
 #content_panel{

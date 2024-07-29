@@ -116,7 +116,10 @@ echo '<div>
 <button id='pagebtn1' pagenum="page1" onclick="flip_page(this)">Overview</button>
 
 <button id='pagebtn2' pagenum="page2" onclick="flip_page(this)">Articles</button>
-<button id='pagebtn2a' pagenum="page2a" onclick="flip_page(this)" style="display: none;" class='sub_button'>All Articles</button>
+<div id='sub_div'>
+<button id='pagebtn2a' pagenum="page2a" onclick="flip_page(this)" style="display: none;" class='sub_button'>New Article</button>
+<button id='pagebtn2b' pagenum="page2b" onclick="flip_page(this)" style="display: none;" class='sub_button'>All Articles</button>
+</div>
 
 <button id='pagebtn3' pagenum="page3" onclick="flip_page(this)">Accounts</button>
 <button id='pagebtn4' pagenum="page4" onclick="flip_page(this)">Settings</button> 
@@ -138,6 +141,10 @@ echo '<div>
 
         <div id="page2a" class="" style="display: none;">
         <p>page2a Content</p>
+        </div>
+
+        <div id="page2b" class="" style="display: none;">
+        <p>page2b Content</p>
         </div>
 
 
@@ -163,9 +170,11 @@ echo '<div>
             document.getElementById("page2").style.display="none";
             document.getElementById("page3").style.display="none";
             document.getElementById("page4").style.display="none";
-            
+
             document.getElementById("page2a").style.display="none";
+            document.getElementById("page2b").style.display="none";
             document.getElementById("pagebtn2a").style.display="none";
+            document.getElementById("pagebtn2b").style.display="none";
 
             //document.getElementById(pageid.id).style.display="block";
 
@@ -174,8 +183,12 @@ echo '<div>
             var pageId = pageid.getAttribute("pagenum");
             document.getElementById(pageId).style.display = "block";
 
-            if(pageId=='page2' || pageId=='page2a')
-                document.getElementById("pagebtn2a").style.display="block";
+            if(pageId=='page2' || pageId=='page2a' || pageId=='page2b')
+                {
+                    document.getElementById("pagebtn2a").style.display="block";
+                    document.getElementById("pagebtn2b").style.display="block";
+                }
+
 
         }
 
