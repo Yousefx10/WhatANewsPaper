@@ -43,7 +43,20 @@ body{margin:0;
 #content_panel{
     float: right;
     width: 70%;
-    background-color: aquamarine;
+    background-color: black;
 }
 .float_clear{clear: both;}
 
+
+
+#content_header
+{
+    text-align: center;
+    color:white;
+}
+
+#content_body
+{
+    background-color: lavender;
+    padding: 20px;
+}

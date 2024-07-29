@@ -121,21 +121,24 @@ echo '<div>
 
 
 <div id="content_panel">
-    <p>Panel Content</p>
-
-    <div id="page1" class="">
-    <p>Overview Content</p>
-    </div>
-    <div id="page2" class="" style="display: none;">
-    <p>Articles Content</p>
-    </div>
-    <div id="page3" class="" style="display: none;">
-    <p>Accounts Content</p>
-    </div>
-    <div id="page4" class="" style="display: none;">
-    <p>Settings Content</p>
+    <div id='content_header'>
+        <p>Panel Content</p>
     </div>
 
+    <div id='content_body'>
+        <div id="page1" class="">
+        <p>Overview Content</p>
+        </div>
+        <div id="page2" class="" style="display: none;">
+        <p>Articles Content</p>
+        </div>
+        <div id="page3" class="" style="display: none;">
+        <p>Accounts Content</p>
+        </div>
+        <div id="page4" class="" style="display: none;">
+        <p>Settings Content</p>
+        </div>
+    </div>
 </div>
 <span class="float_clear"></span>
 
