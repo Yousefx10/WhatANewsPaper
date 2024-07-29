@@ -17,7 +17,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-$stmt = $conn->prepare("INSERT INTO articles (title, content, author_id,category,breaking) VALUES (?, ?, ?,?,?)");
+$stmt = $conn->prepare("INSERT INTO articles (title, content, author_id,category,is_breaking) VALUES (?, ?, ?,?,?)");
 $stmt->bind_param("sssss", $title, $content, $author,$category,$breaking);
 
 
@@ -25,7 +25,7 @@ $title = $_POST['title'];
 $content = $_POST['content'];
 $author = $_POST['author'];
 $category = $_POST['category'];
-$breaking = $_POST['breaking'];
+$breaking = isset($_POST['breaking']) ? 1 : 0;
 $stmt->execute();
 
 // $sql = "INSERT INTO articles (title, content, author_id) VALUES ('$title', '$content', '$author')";

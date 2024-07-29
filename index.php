@@ -111,7 +111,7 @@ $conn->close();
 
         //THE DEFAULT TO BE DISPLAYED IS (World)
         document.querySelectorAll('.World').forEach(function(element) {
-                element.style.display = 'none';
+                element.style.display = 'block';
             });
 
     function showbycategory(current_category){
