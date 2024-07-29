@@ -10,7 +10,44 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
 
     echo "User is logged in<br/>";
     $_SESSION['loggedin'] = true;
+
+
+    $username = 'admin'; // Replace with the actual username
+
+    // Prepare the SQL statement
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username); // "s" specifies the type of $username (string)
+    
+    // Execute the statement
+    $stmt->execute();
+    
+    // Get the result
+    $result = $stmt->get_result();
+    
+    // Fetch the user ID
+    if ($row = $result->fetch_assoc()) {
+        $user_id = $row['id'];
+        echo "User ID: " . $user_id;
+    } else {
+        echo "No user found with that username.";
+    }
+    
+    // Close the statement and connection
+    $stmt->close();
+    $conn->close();
+
+
+
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+
+
+
+
+
+
 
 $stmt = $conn->prepare("INSERT INTO articles (title, content, author_id) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $title, $content, $author);
@@ -46,7 +83,7 @@ echo "try to login <br/>";
         $pass = mysqli_real_escape_string($conn, $_POST['password']);
         
         // Query to fetch user details
-        $sql = "SELECT * FROM users WHERE username='$user'";
+        $sql = "SELECT * FROM users WHERE username=''";
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
@@ -60,6 +97,25 @@ echo "try to login <br/>";
         
                 $_SESSION['loggedin'] = true;
                 header('Location: ' . $_SERVER['PHP_SELF']);
+
+                $username = 'exampleUser';
+                $stmt = $mysqli->prepare("SELECT id FROM users WHERE username = ?");
+                $stmt->bind_param("s", $username); // "s" specifies the type of $username (string)
+                $stmt->execute();
+
+                // Get the result
+                $result = $stmt->get_result();
+                if ($row = $result->fetch_assoc()) {
+                    $user_id = $row['id'];
+                    echo "User ID: " . $user_id;
+                }
+                 else {echo "No user found with that username.";}
+                
+                $stmt->close();
+                $mysqli->close();
+                
+
+
                 $conn->close();
                 exit();
 
