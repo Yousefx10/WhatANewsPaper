@@ -1,3 +1,9 @@
+<?php
+
+require 'admin/sql.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,7 +63,27 @@
         </div>
 
 
+<?php
 
+$sql = "SELECT * FROM articles ORDER BY created_at DESC";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "<h2>" . $row["title"]. "</h2>";
+        echo "<p>" . $row["content"]. "</p>";
+        echo "<p><em>By " . $row["author_id"]. " on " . $row["created_at"]. "</em></p>";
+        echo "<hr>";
+    }
+} else {
+    echo "No news articles found.";
+}
+
+$conn->close();
+
+
+
+
+?>
 
 
 
