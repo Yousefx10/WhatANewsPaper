@@ -113,15 +113,29 @@ echo '<div>
 
 
 <div id="side_panel">
-<button>Overview</button>
-<button>Articles</button>
-<button>Accounts</button>
-<button>Settings</button> 
+<button id='pagebtn1' pagenum="page1" onclick="flip_page(this)">Overview</button>
+<button id='pagebtn2' pagenum="page2" onclick="flip_page(this)">Articles</button>
+<button id='pagebtn3' pagenum="page3" onclick="flip_page(this)">Accounts</button>
+<button id='pagebtn4' pagenum="page4" onclick="flip_page(this)">Settings</button> 
 </div>
 
 
 <div id="content_panel">
     <p>Panel Content</p>
+
+    <div id="page1" class="">
+    <p>Overview Content</p>
+    </div>
+    <div id="page2" class="" style="display: none;">
+    <p>Articles Content</p>
+    </div>
+    <div id="page3" class="" style="display: none;">
+    <p>Accounts Content</p>
+    </div>
+    <div id="page4" class="" style="display: none;">
+    <p>Settings Content</p>
+    </div>
+
 </div>
 <span class="float_clear"></span>
 
@@ -130,6 +144,24 @@ echo '<div>
 </div>
 
 
+    <script>
+        function flip_page(pageid)
+        {
+            document.getElementById("page1").style.display="none";
+            document.getElementById("page2").style.display="none";
+            document.getElementById("page3").style.display="none";
+            document.getElementById("page4").style.display="none";
 
+            //document.getElementById(pageid.id).style.display="block";
+
+            // pageid.style.display="none";
+
+            var pageId = pageid.getAttribute("pagenum");
+            document.getElementById(pageId).style.display = "block";
+
+        }
+
+
+    </script>
     </body>
 </html>
