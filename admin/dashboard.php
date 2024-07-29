@@ -17,13 +17,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-$stmt = $conn->prepare("INSERT INTO articles (title, content, author_id) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $title, $content, $author);
+$stmt = $conn->prepare("INSERT INTO articles (title, content, author_id,category) VALUES (?, ?, ?,?)");
+$stmt->bind_param("ssss", $title, $content, $author,$category);
 
 
 $title = $_POST['title'];
 $content = $_POST['content'];
 $author = $_POST['author'];
+$category = $_POST['category'];
 $stmt->execute();
 
 // $sql = "INSERT INTO articles (title, content, author_id) VALUES ('$title', '$content', '$author')";
@@ -217,7 +218,13 @@ echo '<div>
                 <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
 
                 <input type="hidden" id="author" name="author" value="<?php echo $_SESSION['useridnow'];?>"><br><br>
-
+                <label for="fruits">Choose a Category:</label>
+        <select id="Category" name="category">
+            <option value="World">World</option>
+            <option value="Sports">Sports</option>
+            <option value="Business">Business</option>
+            <option value="Stories">Stories</option>
+        </select>
                 <input type="submit" value="Submit">
             </form>
         </div>

@@ -49,7 +49,7 @@ require 'admin/sql.php';
 
             <div class="nav btn">
                 <span>World</span>
-                <span>Sport</span>
+                <span>Sports</span>
                 <span>Breaking News</span>
                 <span>Business</span>
                 <span>Stories</span>
