@@ -38,7 +38,10 @@ body{margin:0;
 #side_panel button:hover{
     border-left: 10px solid coral;
 }
-
+.sub_button{
+    background-color: lightsteelblue;
+    padding: 2px !important;
+}
 
 #content_panel{
     float: right;

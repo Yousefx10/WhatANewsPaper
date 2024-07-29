@@ -114,7 +114,10 @@ echo '<div>
 
 <div id="side_panel">
 <button id='pagebtn1' pagenum="page1" onclick="flip_page(this)">Overview</button>
+
 <button id='pagebtn2' pagenum="page2" onclick="flip_page(this)">Articles</button>
+<button id='pagebtn2a' pagenum="page2a" onclick="flip_page(this)" style="display: none;" class='sub_button'>All Articles</button>
+
 <button id='pagebtn3' pagenum="page3" onclick="flip_page(this)">Accounts</button>
 <button id='pagebtn4' pagenum="page4" onclick="flip_page(this)">Settings</button> 
 </div>
@@ -132,6 +135,12 @@ echo '<div>
         <div id="page2" class="" style="display: none;">
         <p>Articles Content</p>
         </div>
+
+        <div id="page2a" class="" style="display: none;">
+        <p>page2a Content</p>
+        </div>
+
+
         <div id="page3" class="" style="display: none;">
         <p>Accounts Content</p>
         </div>
@@ -154,6 +163,9 @@ echo '<div>
             document.getElementById("page2").style.display="none";
             document.getElementById("page3").style.display="none";
             document.getElementById("page4").style.display="none";
+            
+            document.getElementById("page2a").style.display="none";
+            document.getElementById("pagebtn2a").style.display="none";
 
             //document.getElementById(pageid.id).style.display="block";
 
@@ -161,6 +173,9 @@ echo '<div>
 
             var pageId = pageid.getAttribute("pagenum");
             document.getElementById(pageId).style.display = "block";
+
+            if(pageId=='page2' || pageId=='page2a')
+                document.getElementById("pagebtn2a").style.display="block";
 
         }
 
