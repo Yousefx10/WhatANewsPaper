@@ -179,8 +179,8 @@ echo '<div>
     ?>
 
 
-
-
+<p>will hide this later</p>
+<hr/>
 <div id="side_panel">
 <button id='pagebtn1' pagenum="page1" onclick="flip_page(this)">Overview</button>
 
