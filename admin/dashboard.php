@@ -223,7 +223,34 @@ echo '<div>
         </div>
 
         <div id="page2b" class="" style="display: none;">
-        <p>page2b Content</p>
+        
+        <?php
+
+$sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users ON articles.author_id = users.id ORDER BY articles.created_at DESC;";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "<h2>" . $row["title"]. "</h2>";
+        echo "<p>" . $row["content"]. "</p>";
+        $currentauthorID = $row["author_id"];
+        
+        echo "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
+        echo "<hr>";
+    }
+} else {
+    echo "No news articles found.";
+}
+
+$conn->close();
+
+
+
+
+?>
+
+
+
+
         </div>
 
 
