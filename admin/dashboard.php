@@ -9,44 +9,12 @@ require "sql.php";
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
 
     echo "User is logged in<br/>";
+
     $_SESSION['loggedin'] = true;
-
-
-    $username = 'admin'; // Replace with the actual username
-
-    // Prepare the SQL statement
-    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username); // "s" specifies the type of $username (string)
-    
-    // Execute the statement
-    $stmt->execute();
-    
-    // Get the result
-    $result = $stmt->get_result();
-    
-    // Fetch the user ID
-    if ($row = $result->fetch_assoc()) {
-        $user_id = $row['id'];
-        echo "User ID: " . $user_id;
-    } else {
-        echo "No user found with that username.";
-    }
-    
-    // Close the statement and connection
-    $stmt->close();
-    $conn->close();
-
-
+    echo "current user ID".$_SESSION['useridnow'];
 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-
-
-
-
-
 
 
 $stmt = $conn->prepare("INSERT INTO articles (title, content, author_id) VALUES (?, ?, ?)");
@@ -81,9 +49,9 @@ echo "try to login <br/>";
         // Fetching and sanitizing user input
         $user = mysqli_real_escape_string($conn, $_POST['username']);
         $pass = mysqli_real_escape_string($conn, $_POST['password']);
-        
+        echo $user;
         // Query to fetch user details
-        $sql = "SELECT * FROM users WHERE username=''";
+        $sql = "SELECT * FROM users WHERE username='$user'";
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
@@ -96,27 +64,50 @@ echo "try to login <br/>";
                 echo "Login successful. Welcome, " . $_SESSION['username'] . "!";
         
                 $_SESSION['loggedin'] = true;
-                header('Location: ' . $_SERVER['PHP_SELF']);
 
-                $username = 'exampleUser';
-                $stmt = $mysqli->prepare("SELECT id FROM users WHERE username = ?");
-                $stmt->bind_param("s", $username); // "s" specifies the type of $username (string)
+
+
+
+                // Prepare the SQL statement
+                $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+                $stmt->bind_param("s", $user); // "s" specifies the type of $username (string)
+                
+                // Execute the statement
                 $stmt->execute();
-
+                
                 // Get the result
                 $result = $stmt->get_result();
+                
+                // Fetch the user ID
                 if ($row = $result->fetch_assoc()) {
                     $user_id = $row['id'];
-                    echo "User ID: " . $user_id;
-                }
-                 else {echo "No user found with that username.";}
+                    // echo "User ID: " . $user_id;
+                } 
+                // else {echo "No user found with that username.";}
                 
+                // Close the statement and connection
                 $stmt->close();
-                $mysqli->close();
+
                 
+
+                $_SESSION['useridnow'] = $user_id;
+
+
+
+
+
+
 
 
                 $conn->close();
+               
+
+                header('Location: ' . $_SERVER['PHP_SELF']);
+
+                
+
+
+
                 exit();
 
             } 
@@ -225,7 +216,7 @@ echo '<div>
                 <label for="content">Content:</label><br>
                 <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
 
-                <input type="hidden" id="author" name="author" value="ok1"><br><br>
+                <input type="hidden" id="author" name="author" value="<?php echo $_SESSION['useridnow'];?>"><br><br>
 
                 <input type="submit" value="Submit">
             </form>
