@@ -35,7 +35,7 @@ $stmt->execute();
 echo "New record created successfully";
 
 $stmt->close();
-$conn->close();
+// $conn->close();
 
      
     }
@@ -101,13 +101,12 @@ echo "try to login <br/>";
 
 
 
-                $conn->close();
+                // $conn->close();
                
 
                 header('Location: ' . $_SERVER['PHP_SELF']);
 
                 
-
 
 
                 exit();
@@ -313,6 +312,10 @@ $conn->close();
         }
 
 
+    </script>
+        <script>
+        console.log('This script is executed.');
+        // Add more JavaScript code here
     </script>
     </body>
 </html>
