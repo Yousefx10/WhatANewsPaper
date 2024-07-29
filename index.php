@@ -50,7 +50,7 @@ require 'admin/sql.php';
             <div class="nav btn">
                 <span onclick="showbycategory('World');">World</span>
                 <span onclick="showbycategory('Sports');">Sports</span>
-                <span onclick="showbycategory('');">Breaking News</span>
+                <span onclick="showbycategory('breaking');">Breaking News</span>
                 <span onclick="showbycategory('Business');">Business</span>
                 <span onclick="showbycategory('Stories');">Stories</span>
             </div>
@@ -70,7 +70,8 @@ $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users O
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo "<div class='".$row["category"]." category'>";
+        $breaking = $row['is_breaking']==1 ? 'breaking' : '';
+        echo "<div class='".$row["category"]." category $breaking'>";
         echo "<h2>" . $row["title"]. "</h2>";
         echo "<p>" . $row["content"]. "</p>";
         $currentauthorID = $row["author_id"];
