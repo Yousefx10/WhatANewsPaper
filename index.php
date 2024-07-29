@@ -48,11 +48,11 @@ require 'admin/sql.php';
             <h1>What A News Papers</h1>
 
             <div class="nav btn">
-                <span>World</span>
-                <span>Sports</span>
-                <span>Breaking News</span>
-                <span>Business</span>
-                <span>Stories</span>
+                <span onclick="showbycategory('World');">World</span>
+                <span onclick="showbycategory('Sports');">Sports</span>
+                <span onclick="showbycategory('');">Breaking News</span>
+                <span onclick="showbycategory('Business');">Business</span>
+                <span onclick="showbycategory('Stories');">Stories</span>
             </div>
         </div>
 
@@ -70,7 +70,7 @@ $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users O
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo "<div class='".$row["category"]."'>";
+        echo "<div class='".$row["category"]." category'>";
         echo "<h2>" . $row["title"]. "</h2>";
         echo "<p>" . $row["content"]. "</p>";
         $currentauthorID = $row["author_id"];
@@ -97,7 +97,28 @@ $conn->close();
         </div>
 
 
+<script>
 
+        var elements = document.querySelectorAll('.category');
+        function hide_all_categories()
+        {
+            // Loop through each element and set display to none
+            elements.forEach(function(element) {
+                element.style.display = 'none';
+            });
+        }
+        hide_all_categories();
+
+
+
+    function showbycategory(current_category){
+        hide_all_categories();
+        document.querySelectorAll('.'+current_category).forEach(function(current_category) {
+            current_category.style.display = 'block';
+            console.log(current_category);
+            });
+    }
+</script>
 
 
         
