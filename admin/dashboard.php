@@ -81,7 +81,9 @@ echo "<br/>wow";
         <link rel="stylesheet" href="admin_style.css"/>
     </head>
     <body>
-    <?php  
+
+<div class="container">
+<?php  
      $cssresult = ($_SESSION['loggedin']);
 
     if(!$cssresult)
@@ -108,17 +110,24 @@ echo '<div>
     ?>
 
 
+
+
 <div id="side_panel">
-<button>Clicks</button>
-<button>Clicks</button>
-<button>Clicks</button>
-<button>Clicks</button>
-<button>Clicks</button>
-<button>Clicks</button>
-<button>Clicks</button>
+<button>Overview</button>
+<button>Articles</button>
+<button>Accounts</button>
+<button>Settings</button> 
+</div>
+
+
+<div id="content_panel">
+    <p>Panel Content</p>
 </div>
 <span class="float_clear"></span>
 
+
+
+</div>
 
 
 

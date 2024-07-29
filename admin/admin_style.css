@@ -1,3 +1,49 @@
-#side_panel {height:70%;width: 300px;float: left;background-color: bisque;}
-#side_panel button{display: block;width: 90%;padding: 10px;margin:5px auto;}
+body{margin:0;    
+    /* background-color: #f4f4f4; */
+}
+
+.container {
+    width: 95%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    /* border: 1px solid #ddd; */
+}
+
+
+
+
+
+
+
+
+
+#side_panel {
+    height:70%;
+    width: 30%;
+    float: left;
+    background-color: bisque;
+}
+#side_panel button{
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin:5px auto;
+    cursor:pointer;
+    border:none;
+    transition: border 0.1s ease;
+}
+#side_panel button:hover{
+    border-left: 10px solid coral;
+}
+
+
+#content_panel{
+    float: right;
+    width: 70%;
+    background-color: aquamarine;
+}
 .float_clear{clear: both;}
+
