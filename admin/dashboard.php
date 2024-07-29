@@ -6,10 +6,24 @@ session_start();
 require "sql.php";
 
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
 
     echo "User is logged in<br/>";
     $_SESSION['loggedin'] = true;
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   // Get form data
+$title = $_POST['title'];
+$content = $_POST['content'];
+$author = $_POST['author'];
+
+$sql = "INSERT INTO articles (title, content, author_id) VALUES ('$title', '$content', '$author')";
+if ($conn->query($sql) === TRUE) {echo "New record created successfully";} 
+    else {echo "Error: " . $sql . "<br>" . $conn->error;}
+
+$conn->close();
+
+     
+    }
 
 } else {
 
@@ -140,7 +154,17 @@ echo '<div>
         </div>
 
         <div id="page2a" class="" style="display: none;">
-        <p>page2a Content</p>
+            <form action="dashboard.php" method="post">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br><br>
+
+                <label for="content">Content:</label><br>
+                <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
+
+                <input type="hidden" id="author" name="author" value="ok1"><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
         </div>
 
         <div id="page2b" class="" style="display: none;">
