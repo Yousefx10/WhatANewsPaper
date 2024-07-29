@@ -11,15 +11,23 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
     echo "User is logged in<br/>";
     $_SESSION['loggedin'] = true;
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-   // Get form data
+
+$stmt = $conn->prepare("INSERT INTO articles (title, content, author_id) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $title, $content, $author);
+
+
 $title = $_POST['title'];
 $content = $_POST['content'];
 $author = $_POST['author'];
+$stmt->execute();
 
-$sql = "INSERT INTO articles (title, content, author_id) VALUES ('$title', '$content', '$author')";
-if ($conn->query($sql) === TRUE) {echo "New record created successfully";} 
-    else {echo "Error: " . $sql . "<br>" . $conn->error;}
+// $sql = "INSERT INTO articles (title, content, author_id) VALUES ('$title', '$content', '$author')";
+// if ($conn->query($sql) === TRUE) {echo "New record created successfully";} 
+//     else {echo "Error: " . $sql . "<br>" . $conn->error;}
 
+echo "New record created successfully";
+
+$stmt->close();
 $conn->close();
 
      
