@@ -17,14 +17,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-$stmt = $conn->prepare("INSERT INTO articles (title, content, author_id,category) VALUES (?, ?, ?,?)");
-$stmt->bind_param("ssss", $title, $content, $author,$category);
+$stmt = $conn->prepare("INSERT INTO articles (title, content, author_id,category,breaking) VALUES (?, ?, ?,?,?)");
+$stmt->bind_param("sssss", $title, $content, $author,$category,$breaking);
 
 
 $title = $_POST['title'];
 $content = $_POST['content'];
 $author = $_POST['author'];
 $category = $_POST['category'];
+$breaking = $_POST['breaking'];
 $stmt->execute();
 
 // $sql = "INSERT INTO articles (title, content, author_id) VALUES ('$title', '$content', '$author')";
@@ -225,6 +226,12 @@ echo '<div>
             <option value="Business">Business</option>
             <option value="Stories">Stories</option>
         </select>
+        <label for="breaking">
+            <input type="checkbox" id="breaking" name="breaking" value="yes">
+            Is this breaking news?
+        </label>
+
+
                 <input type="submit" value="Submit">
             </form>
         </div>
