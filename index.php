@@ -109,13 +109,16 @@ $conn->close();
         }
         hide_all_categories();
 
-
+        //THE DEFAULT TO BE DISPLAYED IS (World)
+        document.querySelectorAll('.World').forEach(function(element) {
+                element.style.display = 'none';
+            });
 
     function showbycategory(current_category){
         hide_all_categories();
         document.querySelectorAll('.'+current_category).forEach(function(current_category) {
             current_category.style.display = 'block';
-            console.log(current_category);
+            // console.log(current_category);
             });
     }
 </script>
