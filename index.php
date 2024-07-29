@@ -70,12 +70,14 @@ $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users O
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
+        echo "<div class='".$row["category"]."'>";
         echo "<h2>" . $row["title"]. "</h2>";
         echo "<p>" . $row["content"]. "</p>";
         $currentauthorID = $row["author_id"];
         
         echo "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
         echo "<hr>";
+        echo "</div>";
     }
 } else {
     echo "No news articles found.";
