@@ -381,9 +381,12 @@ if ($result->num_rows > 0) {
                 console.log(data);
                 // Optionally, you could remove the row from the DOM or update the UI
 
-               var parentDiv = OLDnews.parentElement.parentElement;
+               var parentDiv = OLDnews.parentElement;
                //parentDiv.remove();// Remove the parent element from the DOM 
-               parentDiv.style.background="red";
+               parentDiv.parentElement.style.background="red";
+               parentDiv.innerHTML  = '<span style="background:white">THIS ENTIRE ARTICLE GOT DELETED!</span>';
+
+
 
             })
             .catch(error => {
