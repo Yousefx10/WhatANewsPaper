@@ -306,7 +306,7 @@ if ($result->num_rows > 0) {
         $CURRENTarticleID = $row["id"];
 
         echo "<div class='".$row["category"]." category $breaking'>";
-        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\")'>[Delete]</span><span>[Edit]</span></div>";
+        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span>[Edit]</span></div>";
         echo "<h2>" . $row["title"]. "</h2>";
 
         $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
@@ -349,15 +349,13 @@ if ($result->num_rows > 0) {
 </div>
 
 <script>
-    function callmetoALERT(articleID)
+    function callmetoALERT(articleID,OLDnews)
     {
         var result = confirm("Are you sure you want to delete this item?");
             if (result) {
                 // User clicked OK
-                sendTHEdata(articleID);
-            } else {
-                // User clicked Cancel
-                    }
+                sendTHEdata(articleID,OLDnews);
+            } else {/* User clicked Cancel*/}
 
             
     }
@@ -366,7 +364,7 @@ if ($result->num_rows > 0) {
 
 
     <script>
-            function sendTHEdata(currentID)
+            function sendTHEdata(currentID,OLDnews)
             {
                 const iddd = currentID;
             
@@ -382,6 +380,11 @@ if ($result->num_rows > 0) {
             //    alert(data); // Show the response from the server
                 console.log(data);
                 // Optionally, you could remove the row from the DOM or update the UI
+
+               var parentDiv = OLDnews.parentElement.parentElement;
+               //parentDiv.remove();// Remove the parent element from the DOM 
+               parentDiv.style.background="red";
+
             })
             .catch(error => {
                 console.error('Error:', error);
