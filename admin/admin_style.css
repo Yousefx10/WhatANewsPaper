@@ -79,3 +79,14 @@ body{margin:0;
     color: red;
     font-size: 12px;
 }
+
+.articles_settings{
+    color: brown;
+    cursor: pointer;
+}
+.articles_settings span{
+    transition: background-color 1s ease;
+}
+.articles_settings span:hover{
+    background-color: cornflowerblue;
+}

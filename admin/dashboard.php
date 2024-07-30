@@ -248,7 +248,10 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $breaking = $row['is_breaking']==1 ? 'breaking' : '';
+
+
         echo "<div class='".$row["category"]." category $breaking'>";
+        echo"<div class='articles_settings'><span>[Delete]</span><span>[Edit]</span></div>";
         echo "<h2>" . $row["title"]. "</h2>";
 
         $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
