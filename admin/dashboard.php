@@ -120,7 +120,7 @@ echo "try to login <br/>";
         }
         
         
-        $conn->close();
+        // $conn->close(); //stoping this code because it's cause the code not to continue running after the line.
 
 
 }
@@ -254,7 +254,7 @@ if ($result->num_rows > 0) {
     echo "No news articles found.";
 }
 
-$conn->close();
+// $conn->close();
 
 
 
