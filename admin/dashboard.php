@@ -6,6 +6,43 @@ session_start();
 require "sql.php";
 
 
+
+//THIS CODE COMES FIRST TO HANDLE THE OPERATIONS LIKE [DELETE] AND [EDIT].
+//BECAUSE IT'S A ONE PAGE DASHBOARD.
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    
+    // Check if the 'id' parameter is set in the POST data
+    if (isset($_POST['iddd']) && !empty($_POST['iddd'])) {
+
+        $iddd = isset($_POST['iddd']) ? intval($_POST['iddd']) : 0;
+
+        // SQL query to delete the row
+        $sql = "DELETE FROM articles WHERE id = $iddd";
+        
+        // Execute the query
+        if ($conn->query($sql) === TRUE) {
+            echo "Row deleted successfully.";
+        } else {
+            echo "Error deleting row: " . $conn->error;
+        }
+        exit();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
 
     echo "User is logged in<br/>";
@@ -142,6 +179,24 @@ if( password_verify("testing", password_hash("testing", PASSWORD_DEFAULT) ));
 echo "<br/>wow";
 */
 ?>
+
+
+
+<?php
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -248,10 +303,10 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $breaking = $row['is_breaking']==1 ? 'breaking' : '';
-
+        $CURRENTarticleID = $row["id"];
 
         echo "<div class='".$row["category"]." category $breaking'>";
-        echo"<div class='articles_settings'><span>[Delete]</span><span>[Edit]</span></div>";
+        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\")'>[Delete]</span><span>[Edit]</span></div>";
         echo "<h2>" . $row["title"]. "</h2>";
 
         $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
@@ -292,6 +347,51 @@ if ($result->num_rows > 0) {
 
 
 </div>
+
+<script>
+    function callmetoALERT(articleID)
+    {
+        var result = confirm("Are you sure you want to delete this item?");
+            if (result) {
+                // User clicked OK
+                sendTHEdata(articleID);
+            } else {
+                // User clicked Cancel
+                    }
+
+            
+    }
+
+    </script>
+
+
+    <script>
+            function sendTHEdata(currentID)
+            {
+                const iddd = currentID;
+            
+            fetch('dashboard.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `iddd=${encodeURIComponent(iddd)}`
+            })
+            .then(response => response.text())
+            .then(data => {
+            //    alert(data); // Show the response from the server
+                console.log(data);
+                // Optionally, you could remove the row from the DOM or update the UI
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            }
+
+    </script>
+
+
 
 
     <script>
