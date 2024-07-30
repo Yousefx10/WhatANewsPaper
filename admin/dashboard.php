@@ -242,14 +242,19 @@ echo '<div>
 // $sql = "SELECT * FROM articles ORDER BY created_at DESC";
 $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users ON articles.author_id = users.id ORDER BY articles.created_at DESC;";
 $result = $conn->query($sql);
+
+
+
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $breaking = $row['is_breaking']==1 ? 'breaking' : '';
         echo "<div class='".$row["category"]." category $breaking'>";
         echo "<h2>" . $row["title"]. "</h2>";
-        echo "<p>" . $row["content"]. "</p>";
+
+        $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
+        echo "<p>" .$categorySPAN. $row["content"]. "</p>";
         $currentauthorID = $row["author_id"];
-        
+
         echo "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
         echo "<hr>";
         echo "</div>";

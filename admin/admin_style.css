@@ -68,3 +68,14 @@ body{margin:0;
     background-color: lavender;
     padding: 20px;
 }
+
+
+.categorySPAN{
+    background-color: cornflowerblue;
+    padding: 5px;
+}
+.sobreaking::after{
+    content: " BREAKING";
+    color: red;
+    font-size: 12px;
+}
