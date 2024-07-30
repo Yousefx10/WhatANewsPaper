@@ -218,7 +218,7 @@ echo '<div>
                 <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
 
                 <input type="hidden" id="author" name="author" value="<?php echo $_SESSION['useridnow'];?>"><br><br>
-                <label for="fruits">Choose a Category:</label>
+                <label for="Category">Choose a Category:</label>
         <select id="Category" name="category">
             <option value="World">World</option>
             <option value="Sports">Sports</option>

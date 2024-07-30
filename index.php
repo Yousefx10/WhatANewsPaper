@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
     echo "No news articles found.";
 }
 
-$conn->close();
+// $conn->close();
 
 
 
