@@ -11,7 +11,7 @@ require "sql.php";
 //BECAUSE IT'S A ONE PAGE DASHBOARD.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    
+
     // Check if the 'id' parameter is set in the POST data
     if (isset($_POST['iddd']) && !empty($_POST['iddd'])) {
 
@@ -30,13 +30,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     else if (isset($_POST['edit_id']) && !empty($_POST['edit_id'])) {
 
+        $edit_id = $_POST['edit_id'];
+        $edit_title = $_POST['edit_title'];
+        $edit_content = $_POST['edit_content'];
+    
+        // Validate input (optional but recommended)
+        if (!empty($edit_id) && !empty($edit_title) && !empty($edit_content)) {
+            // Update query
+            $sql = "UPDATE articles SET title='$edit_title', content='$edit_content' WHERE id=$edit_id";
+    
+            // Execute the query
+            if ($conn->query($sql) === TRUE) {
+                echo "Record updated successfully";
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+        } else {
+            echo "All fields are required.";
+        }
+
+        exit();
+
+
+
     }
+
 }
-
-//edit this now
-
-
-
 
 
 
@@ -325,7 +344,7 @@ if ($result->num_rows > 0) {
         echo "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
         echo "<hr>";
         echo "</div>";
-        $currentpostID++;
+        //$currentpostID++;
     }
 } else {
     echo "No news articles found.";

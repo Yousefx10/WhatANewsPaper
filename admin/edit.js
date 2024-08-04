@@ -47,31 +47,27 @@ console.log(article);
 
 
             const article = document.querySelector(`.div_article[data-postid="${articleId}"]`);
-            const updatedTitle = article.querySelector('.news_title').value;
-            const updatedContent = article.querySelector('.news_content').value;
+            const updatedTitle = article.querySelector('.title-edit').value;
+            const updatedContent = article.querySelector('.content-edit').value;
 
-            // Send updated data to the server
-            fetch('dashboard.php', { // Replace with your server endpoint
+
+
+            fetch('dashboard.php', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: JSON.stringify({
-                    edit_id: articleId,
-                    edit_title: updatedTitle,
-                    edit_content: updatedContent,
-                }),
+                body: `edit_id=${encodeURIComponent(articleId)}&edit_title=${encodeURIComponent(updatedTitle)}&edit_content=${encodeURIComponent(updatedContent)}`
             })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(data => {
-                console.log('Success:', data);
+            //    alert(data); // Show the response from the server
+                console.log(data);
+
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error('Error:', error);
             });
-
-
-
 
 
 
