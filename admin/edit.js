@@ -33,10 +33,48 @@ console.log(article);
             }
         }
 
-        function saveChanges() {
+        function saveChanges(articleId) {
             // Call toggleEdit to switch to view mode and save changes
             toggleEdit();
 
             // Here you would typically send the updated content to the server
             // For example, using fetch or XMLHttpRequest to update the database
+
+
+
+
+
+
+            const article = document.querySelector(`.div_article[data-postid="${articleId}"]`);
+            const updatedTitle = article.querySelector('.news_title').value;
+            const updatedContent = article.querySelector('.news_content').value;
+
+            // Send updated data to the server
+            fetch('dashboard.php', { // Replace with your server endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id: articleId,
+                    title: updatedTitle,
+                    content: updatedContent,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+
+
+
+
+
+
+
+
         }
