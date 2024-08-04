@@ -35,6 +35,7 @@ console.log(article);
 
         function saveChanges(articleId) {
             // Call toggleEdit to switch to view mode and save changes
+            console.log(articleId);
             toggleEdit();
 
             // Here you would typically send the updated content to the server
