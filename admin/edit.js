@@ -57,9 +57,9 @@ console.log(article);
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    id: articleId,
-                    title: updatedTitle,
-                    content: updatedContent,
+                    edit_id: articleId,
+                    edit_title: updatedTitle,
+                    edit_content: updatedContent,
                 }),
             })
             .then(response => response.json())

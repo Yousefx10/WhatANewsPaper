@@ -28,9 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         exit();
     }
+    else if (isset($_POST['edit_id']) && !empty($_POST['edit_id'])) {
+
+    }
 }
 
-
+//edit this now
 
 
 
@@ -299,15 +302,15 @@ $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users O
 $result = $conn->query($sql);
 
 
-$currentpostID=1;//making the post ID to start selecting it while editing
+//$currentpostID=1;//making the post ID to start selecting it while editing
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
         $breaking = $row['is_breaking']==1 ? 'breaking' : '';
         $CURRENTarticleID = $row["id"];
 
-        echo "<div class='div_article ".$row["category"]."  $breaking' data-postid='$currentpostID' >";
-        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$currentpostID\")'>[Edit]</span></div>";
+        echo "<div class='div_article ".$row["category"]."  $breaking' data-postid='$CURRENTarticleID' >";
+        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$CURRENTarticleID\")'>[Edit]</span></div>";
         echo "<h2 class='news_title'>" . $row["title"]. "</h2>";
 
         $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
@@ -315,7 +318,7 @@ if ($result->num_rows > 0) {
         echo "<input type='text' class='title-edit textarea-hidden'/>";
 
         echo "<textarea class='content-edit textarea-hidden'></textarea>";
-        echo "<button class='save-button textarea-hidden' onclick='saveChanges($currentpostID)'>Save</button>";
+        echo "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
         
         $currentauthorID = $row["author_id"];
 
