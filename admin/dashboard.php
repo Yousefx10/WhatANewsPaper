@@ -95,6 +95,7 @@ echo "New record created successfully";
 
 $stmt->close();
 // $conn->close();
+header("Location: dashboard.php");//so the data won't be repeated when refreshing the page  
 
      
     }
