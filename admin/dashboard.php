@@ -315,7 +315,7 @@ if ($result->num_rows > 0) {
         echo "<input type='text' class='title-edit textarea-hidden'/>";
 
         echo "<textarea class='content-edit textarea-hidden'></textarea>";
-        echo "<button class='save-button textarea-hidden'>Save</button>";
+        echo "<button class='save-button textarea-hidden' onclick='savechanges()'>Save</button>";
         
         $currentauthorID = $row["author_id"];
 
