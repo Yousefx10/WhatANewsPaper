@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2024 at 11:29 PM
+-- Generation Time: Aug 04, 2024 at 11:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,7 +35,7 @@ CREATE TABLE `articles` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `category` varchar(20) NOT NULL,
   `is_breaking` tinyint(1) NOT NULL DEFAULT 0,
-  `lastedit` timestamp NOT NULL DEFAULT current_timestamp()
+  `last_edit` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
