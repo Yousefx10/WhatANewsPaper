@@ -317,12 +317,11 @@ echo '<div>
         
         <?php
 
-// $sql = "SELECT * FROM articles ORDER BY created_at DESC";
-$sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users ON articles.author_id = users.id ORDER BY articles.created_at DESC;";
-$result = $conn->query($sql);
-
-
-//$currentpostID=1;//making the post ID to start selecting it while editing
+function showarticlesnow()
+{
+    require "sql.php";
+    $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users ON articles.author_id = users.id ORDER BY articles.created_at DESC;";
+    $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
@@ -353,6 +352,8 @@ if ($result->num_rows > 0) {
 
 // $conn->close();
 
+}
+showarticlesnow();
 
 
 
@@ -479,6 +480,7 @@ if ($result->num_rows > 0) {
                 {
                     document.getElementById("pagebtn2a").style.display="block";
                     document.getElementById("pagebtn2b").style.display="block";
+                    console.log("hello");
                 }
 
 
