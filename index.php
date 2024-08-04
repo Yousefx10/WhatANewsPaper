@@ -71,7 +71,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $breaking = $row['is_breaking']==1 ? 'breaking' : '';
-        echo "<div class='".$row["category"]." category $breaking'>";
+        echo "<div class='".$row["category"]."  $breaking' div_article>";
         echo "<h2>" . $row["title"]. "</h2>";
         echo "<p>" . $row["content"]. "</p>";
         $currentauthorID = $row["author_id"];

@@ -306,12 +306,17 @@ if ($result->num_rows > 0) {
         $breaking = $row['is_breaking']==1 ? 'breaking' : '';
         $CURRENTarticleID = $row["id"];
 
-        echo "<div class='".$row["category"]." category $breaking' postID='$currentpostID'>";
-        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span>[Edit]</span></div>";
-        echo "<h2>" . $row["title"]. "</h2>";
+        echo "<div class='div_article ".$row["category"]."  $breaking' data-postid='$currentpostID' >";
+        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$currentpostID\")'>[Edit]</span></div>";
+        echo "<h2 class='news_title'>" . $row["title"]. "</h2>";
 
         $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
-        echo "<p>" .$categorySPAN. $row["content"]. "</p>";
+        echo "<p class='news_content'>" .$categorySPAN. $row["content"]. "</p>";
+        echo "<input type='text' class='title-edit textarea-hidden'/>";
+
+        echo "<textarea class='content-edit textarea-hidden'></textarea>";
+        echo "<button class='save-button textarea-hidden'>Save</button>";
+        
         $currentauthorID = $row["author_id"];
 
         echo "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
@@ -404,48 +409,6 @@ if ($result->num_rows > 0) {
 
 
 
-<script>
-    //THE EDIT FUNCTION AREA
-        function toggleEdit() {
-            const titleDiv = document.getElementById('title');
-            const contentDiv = document.getElementById('content');
-
-            const titleEdit = document.getElementById('title-edit');
-            const contentEdit = document.getElementById('content-edit');
-
-            const saveButton = document.getElementById('save-button');
-
-            if (titleEdit.classList.contains('textarea-hidden')) {
-                // Switch to edit mode
-                titleEdit.value = titleDiv.textContent;
-                contentEdit.value = contentDiv.textContent;
-
-                titleEdit.classList.remove('textarea-hidden');
-                contentEdit.classList.remove('textarea-hidden');
-                saveButton.classList.remove('textarea-hidden');
-                
-                titleDiv.classList.add('textarea-hidden');
-                contentDiv.classList.add('textarea-hidden');
-            } else {
-                // Switch to view mode
-                titleDiv.textContent = titleEdit.value;
-                contentDiv.textContent = contentEdit.value;
-                titleEdit.classList.add('textarea-hidden');
-                contentEdit.classList.add('textarea-hidden');
-                saveButton.classList.add('textarea-hidden');
-                titleDiv.classList.remove('textarea-hidden');
-                contentDiv.classList.remove('textarea-hidden');
-            }
-        }
-
-        function saveChanges() {
-            // Call toggleEdit to switch to view mode and save changes
-            toggleEdit();
-
-            // Here you would typically send the updated content to the server
-            // For example, using fetch or XMLHttpRequest to update the database
-        }
-    </script>
 
 
 
@@ -465,7 +428,7 @@ if ($result->num_rows > 0) {
 
 
 
-
+<script src='edit.js'></script>
 
 
 
