@@ -90,3 +90,9 @@ body{margin:0;
 .articles_settings span:hover{
     background-color: cornflowerblue;
 }
+
+
+/*EDITING THE ARTICLE styiling settings*/
+.textarea-hidden {
+    display: none;
+}
