@@ -1,15 +1,29 @@
 <?php
 
-echo "Dashboard Menu<br/>";
+//echo "Dashboard Menu<br/>";
 session_start();
 
 require "sql.php";
 
 
 
+
+
+
+
 //THIS CODE COMES FIRST TO HANDLE THE OPERATIONS LIKE [DELETE] AND [EDIT].
 //BECAUSE IT'S A ONE PAGE DASHBOARD.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['testonly']) && !empty($_POST['testonly'])) {
+
+            // Your PHP function logic here
+            $response = ['message' => 'Function executed successfully with ysf'];
+
+            echo json_encode($response);
+            exit();
+
+    }
+
 
 
     // Check if the 'id' parameter is set in the POST data
@@ -353,6 +367,7 @@ if ($result->num_rows > 0) {
 // $conn->close();
 
 }
+
 showarticlesnow();
 
 
@@ -445,6 +460,25 @@ showarticlesnow();
 
 
 
+<script>
+        function callPhpFunction() {
+
+            fetch('dashboard.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `testonly=${encodeURIComponent("hello")}`
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data.message);
+                //document.getElementById('result').innerText = data.message;
+            })
+           .catch(error => console.error('Error:', error));
+        }
+        callPhpFunction();
+    </script>
 
 
 
