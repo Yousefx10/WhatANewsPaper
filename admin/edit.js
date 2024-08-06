@@ -90,6 +90,7 @@ console.log(article);
             .then(response => response.json())
             .then(data => {
               console.log(data.message);
+              //document.getElementById('test').innerHTML = newContent;
 
             })
            //.catch(error => console.error('Error:', error));

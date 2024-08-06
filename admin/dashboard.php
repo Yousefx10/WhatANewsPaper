@@ -12,13 +12,14 @@ function showarticlesnow()
     require "sql.php";
     $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users ON articles.author_id = users.id ORDER BY articles.created_at DESC;";
     $result = $conn->query($sql);
+    $ELEMENTtoecho="";//so the loop Reset's the current variable value, so that's why it's declared outside the loop and being displayed outside it
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
         $breaking = $row['is_breaking']==1 ? 'breaking' : '';
         $CURRENTarticleID = $row["id"];
-        $ELEMENTtoecho="";
-        $ELEMENTtoecho= "<div class='div_article ".$row["category"]."  $breaking' data-postid='$CURRENTarticleID' >";
+
+        $ELEMENTtoecho.= "<div class='div_article ".$row["category"]."  $breaking' data-postid='$CURRENTarticleID' >";
         $ELEMENTtoecho.="<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$CURRENTarticleID\")'>[Edit]</span></div>";
         $ELEMENTtoecho.= "<h2 class='news_title'>" . $row["title"]. "</h2>";
 
@@ -36,9 +37,10 @@ if ($result->num_rows > 0) {
         $ELEMENTtoecho.= "</div>";
 
 
-        return $ELEMENTtoecho;
+
         //$currentpostID++;
     }
+    return $ELEMENTtoecho;
 } else {
     echo "No news articles found.";
 }
