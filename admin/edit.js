@@ -11,10 +11,12 @@ console.log(article);
             const titleEdit = article.querySelector('.title-edit');
             const contentEdit = article.querySelector('.content-edit');
             const breaking_checkbox = article.querySelector('.breaking-edit');
+            const updated_breaking_span = article.querySelector('.categorySPAN');
 
 
             const saveButton = article.querySelector('.save-button');
 
+                console.log(updated_breaking_span);
 
             if (titleEdit.classList.contains('textarea-hidden')) {
                 // Switch to edit mode
@@ -36,6 +38,11 @@ console.log(article);
                 contentEdit.classList.add('textarea-hidden');
 
                 breaking_checkbox.parentElement.classList.add('textarea-hidden');
+                if(breaking_checkbox.checked)
+                updated_breaking_span.classList.add('sobreaking');
+                else
+                updated_breaking_span.classList.remove('sobreaking');
+
 
                 saveButton.classList.add('textarea-hidden');
                 titleDiv.classList.remove('textarea-hidden');
