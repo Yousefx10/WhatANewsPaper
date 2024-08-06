@@ -49,6 +49,9 @@ console.log(article);
                 update_category.classList.add('textarea-hidden');
                 update_category_label.classList.add('textarea-hidden');
 
+                updated_breaking_span.innerHTML=update_category.value;
+
+
                 if(breaking_checkbox.checked)
                 updated_breaking_span.classList.add('sobreaking');
                 else

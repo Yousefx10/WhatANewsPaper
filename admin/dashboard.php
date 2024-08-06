@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 //document.getElementById('UPDATEcategory12').value = 'Business'; 
 
 //or instead of FOR EXAMPLE
-//<option value="option1" <?php echo $defaultSelectedValue === 'option1' ? 'selected' : ''; ?>>Option 1</option>
+//<option value="option1" <?php echo $defaultSelectedValue === 'option1' ? 'selected' : ''; ? >>Option 1</option>
 
         switch($row["category"])
         {
