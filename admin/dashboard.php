@@ -485,7 +485,7 @@ echo showarticlesnow();
                var parentDiv = OLDnews.parentElement;
                //parentDiv.remove();// Remove the parent element from the DOM 
                parentDiv.parentElement.style.background="red";
-               parentDiv.innerHTML  = '<span style="background:white">THIS ENTIRE ARTICLE GOT DELETED!</span>';
+               parentDiv.innerHTML  = '<span style="background:white">THIS ENTIRE ARTICLE HAS BEEN DELETED!</span>';
 
 
 
