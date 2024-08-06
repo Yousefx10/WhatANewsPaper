@@ -30,14 +30,17 @@ if ($result->num_rows > 0) {
         $ELEMENTtoecho.= "<textarea class='content-edit textarea-hidden'></textarea>";
         $ELEMENTtoecho.= "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
         $allofCATEGORIES=
-        "<label for='UPDATEcategory".$CURRENTarticleID."'>Update The Category:</label>
-        <select id='UPDATEcategory".$CURRENTarticleID."' name='UPDATEcategory'>
+        "<label class='textarea-hidden' for='UPDATEcategory".$CURRENTarticleID."'>Update The Category:</label>
+        <select class='textarea-hidden' id='UPDATEcategory".$CURRENTarticleID."' name='UPDATEcategory'>
             <option value='World'>World</option>
             <option value='Sports'>Sports</option>
             <option value='Business'>Business</option>
             <option value='Stories'>Stories</option>
         </select>";
+
         $ELEMENTtoecho.=$allofCATEGORIES;
+
+
         $breaking = $breaking=='breaking' ? 'checked' : '';
         $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden'>is it breaking?<input id='$CURRENTarticleID' type='checkbox' class='breaking-edit' $breaking></label>";
         
