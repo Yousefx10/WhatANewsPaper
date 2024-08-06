@@ -38,6 +38,8 @@ console.log(article);
                 contentEdit.classList.add('textarea-hidden');
 
                 breaking_checkbox.parentElement.classList.add('textarea-hidden');
+                updated_breaking_span.classList.remove('so');//remove this prefix
+
                 if(breaking_checkbox.checked)
                 updated_breaking_span.classList.add('sobreaking');
                 else
