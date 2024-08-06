@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2024 at 12:40 AM
+-- Generation Time: Aug 07, 2024 at 12:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,7 +48,8 @@ CREATE TABLE `settings` (
   `id` int(10) NOT NULL,
   `is_activated` tinyint(4) NOT NULL,
   `project_name` varchar(50) NOT NULL,
-  `bg_color` varchar(20) NOT NULL
+  `bg_color` varchar(20) NOT NULL,
+  `feature_status` tinyint(4) NOT NULL COMMENT '0 for none and 1 for left and 2 for middle and 3 for right'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
