@@ -89,8 +89,8 @@ console.log(article);
             })
             .then(response => response.json())
             .then(data => {
-              console.log(data.message);
-              console.log("did you see the new result");
+              //console.log(data.message);
+              //console.log("did you see the new result");
               document.getElementById('page2b').innerHTML = data.message;
 
             })
