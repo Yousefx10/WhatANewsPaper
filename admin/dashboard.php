@@ -45,7 +45,7 @@ if ($result->num_rows > 0) {
     }
     return $ELEMENTtoecho;
 } else {
-    echo "No news articles found.";
+    return "No news articles found.";
 }
 
 // $conn->close();
