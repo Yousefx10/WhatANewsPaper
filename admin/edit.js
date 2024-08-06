@@ -60,7 +60,8 @@ console.log(article);
             const article = document.querySelector(`.div_article[data-postid="${articleId}"]`);
             const updatedTitle = article.querySelector('.title-edit').value;
             const updatedContent = article.querySelector('.content-edit').value;
-
+            const breaking_checkbox = article.querySelector('.breaking-edit').checked;
+console.log(breaking_checkbox);
 
 
             fetch('dashboard.php', {
@@ -68,7 +69,7 @@ console.log(article);
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: `edit_id=${encodeURIComponent(articleId)}&edit_title=${encodeURIComponent(updatedTitle)}&edit_content=${encodeURIComponent(updatedContent)}`
+                body: `edit_id=${encodeURIComponent(articleId)}&edit_title=${encodeURIComponent(updatedTitle)}&edit_content=${encodeURIComponent(updatedContent)}&edit_breaking=${encodeURIComponent(breaking_checkbox)}`
             })
             .then(response => response.text())
             .then(data => {

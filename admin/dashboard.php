@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
         $ELEMENTtoecho.= "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
         
         $breaking = $breaking=='breaking' ? 'checked' : '';
-        $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden'>is it breaking?<input id='$CURRENTarticleID' type='checkbox' class='breaking-edit' $breaking></label>";
+        $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden'>is it breaking?<input onclick='console.log(this.checked);' id='$CURRENTarticleID' type='checkbox' class='breaking-edit' $breaking></label>";
         
         $currentauthorID = $row["author_id"];
 
@@ -92,11 +92,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $edit_id = $_POST['edit_id'];
         $edit_title = $_POST['edit_title'];
         $edit_content = $_POST['edit_content'];
-    
+        $edit_breaking = $_POST['edit_breaking']=='true' ? 1 : 0;
+
         // Validate input (optional but recommended)
         if (!empty($edit_id) && !empty($edit_title) && !empty($edit_content)) {
-            // Update query
-            $sql = "UPDATE articles SET title='$edit_title', content='$edit_content' WHERE id=$edit_id";
+            // Update query //for testing purpose
+            $sql = "UPDATE articles SET title='$edit_title', content='$edit_content',is_breaking='$edit_breaking' WHERE id=$edit_id";
     
             // Execute the query
             if ($conn->query($sql) === TRUE) {
