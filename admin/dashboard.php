@@ -5,8 +5,46 @@ session_start();
 
 require "sql.php";
 
+//making THIS function in the TOP so we can use it everytime we need
+function showarticlesnow()
+{
+    //echo "whynot";
+    require "sql.php";
+    $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users ON articles.author_id = users.id ORDER BY articles.created_at DESC;";
+    $result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
 
+        $breaking = $row['is_breaking']==1 ? 'breaking' : '';
+        $CURRENTarticleID = $row["id"];
+        $ELEMENTtoecho="";
+        $ELEMENTtoecho= "<div class='div_article ".$row["category"]."  $breaking' data-postid='$CURRENTarticleID' >";
+        $ELEMENTtoecho.="<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$CURRENTarticleID\")'>[Edit]</span></div>";
+        $ELEMENTtoecho.= "<h2 class='news_title'>" . $row["title"]. "</h2>";
 
+        $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
+        $ELEMENTtoecho.= "<p class='news_content'>" .$categorySPAN. $row["content"]. "</p>";
+        $ELEMENTtoecho.= "<input type='text' class='title-edit textarea-hidden'/>";
+
+        $ELEMENTtoecho.= "<textarea class='content-edit textarea-hidden'></textarea>";
+        $ELEMENTtoecho.= "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
+        
+        $currentauthorID = $row["author_id"];
+
+        $ELEMENTtoecho.= "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
+        $ELEMENTtoecho.= "<hr>";
+        $ELEMENTtoecho.= "</div>";
+
+        echo $ELEMENTtoecho;
+        //$currentpostID++;
+    }
+} else {
+    echo "No news articles found.";
+}
+
+// $conn->close();
+
+}
 
 
 
@@ -17,10 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['testonly']) && !empty($_POST['testonly'])) {
 
             // Your PHP function logic here
-            $response = ['message' => 'Function executed successfully with ysf'];
+            $response = ['message' => 'RETURN THE NEWS DATA'];
 
             echo json_encode($response);
-            exit();
+            showarticlesnow();
+           exit();
 
     }
 
@@ -331,43 +370,8 @@ echo '<div>
         
         <?php
 
-function showarticlesnow()
-{
-    require "sql.php";
-    $sql ="SELECT articles.*, users.author AS author_name FROM articles JOIN users ON articles.author_id = users.id ORDER BY articles.created_at DESC;";
-    $result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
 
-        $breaking = $row['is_breaking']==1 ? 'breaking' : '';
-        $CURRENTarticleID = $row["id"];
-
-        echo "<div class='div_article ".$row["category"]."  $breaking' data-postid='$CURRENTarticleID' >";
-        echo"<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$CURRENTarticleID\")'>[Edit]</span></div>";
-        echo "<h2 class='news_title'>" . $row["title"]. "</h2>";
-
-        $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
-        echo "<p class='news_content'>" .$categorySPAN. $row["content"]. "</p>";
-        echo "<input type='text' class='title-edit textarea-hidden'/>";
-
-        echo "<textarea class='content-edit textarea-hidden'></textarea>";
-        echo "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
-        
-        $currentauthorID = $row["author_id"];
-
-        echo "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
-        echo "<hr>";
-        echo "</div>";
-        //$currentpostID++;
-    }
-} else {
-    echo "No news articles found.";
-}
-
-// $conn->close();
-
-}
-
+//calling the function so we can show the news article for the first time
 showarticlesnow();
 
 
@@ -460,25 +464,7 @@ showarticlesnow();
 
 
 
-<script>
-        function callPhpFunction() {
 
-            fetch('dashboard.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `testonly=${encodeURIComponent("hello")}`
-            })
-            .then(response => response.json())
-            .then(data => {
-              console.log(data.message);
-                //document.getElementById('result').innerText = data.message;
-            })
-           .catch(error => console.error('Error:', error));
-        }
-        callPhpFunction();
-    </script>
 
 
 

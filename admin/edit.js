@@ -75,3 +75,23 @@ console.log(article);
 
 
         }
+
+
+        //calling the php function to update the current news articles on dashboard
+        function updateCURRENTarticles() {
+
+            fetch('dashboard.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `testonly=${encodeURIComponent("hello")}`
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data.message);
+
+            })
+           //.catch(error => console.error('Error:', error));
+        }
+        updateCURRENTarticles();
