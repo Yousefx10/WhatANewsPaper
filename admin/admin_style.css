@@ -126,6 +126,17 @@ display: block;
     padding: 10px;
 }
 
+.save-button{
+    padding: 5px;
+    border: 3px dotted black;
+    width: 100px;
+    background-color: cadetblue;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
 
 /*  */
 .textarea-hidden {

@@ -28,7 +28,6 @@ if ($result->num_rows > 0) {
         $ELEMENTtoecho.= "<input type='text' class='title-edit textarea-hidden'/>";
 
         $ELEMENTtoecho.= "<textarea class='content-edit textarea-hidden'></textarea>";
-        $ELEMENTtoecho.= "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
         
         $selectCATEGORY1="";
         $selectCATEGORY2="";
@@ -73,8 +72,9 @@ if ($result->num_rows > 0) {
 
 
         $breaking = $breaking=='breaking' ? 'checked' : '';
-        $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden'>is it breaking?<input id='$CURRENTarticleID' type='checkbox' class='breaking-edit' $breaking></label>";
-        
+        $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden breaking-edit-label'>is it breaking?<input id='$CURRENTarticleID' type='checkbox' class='breaking-edit' $breaking></label>";
+        $ELEMENTtoecho.= "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
+
         //$currentauthorID = $row["author_id"];//i think no need for this
 
         $ELEMENTtoecho.= "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em> <span class='last_edit'>Last Edit (". $row["last_edit"].")</span></p>";
