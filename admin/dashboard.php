@@ -34,6 +34,14 @@ if ($result->num_rows > 0) {
         $selectCATEGORY2="";
         $selectCATEGORY3="";
         $selectCATEGORY4="";
+//i prefer to use this code below  
+
+//instead of FOR EXAMPLE 
+//document.getElementById('UPDATEcategory12').value = 'Business'; 
+
+//or instead of FOR EXAMPLE
+//<option value="option1" <?php echo $defaultSelectedValue === 'option1' ? 'selected' : ''; ?>>Option 1</option>
+
         switch($row["category"])
         {
             case 'World':
@@ -49,6 +57,8 @@ if ($result->num_rows > 0) {
                 $selectCATEGORY4="selected";
                 break;
         }
+
+
 
         $allofCATEGORIES=
         "<label class='textarea-hidden edit_category_label' for='UPDATEcategory".$CURRENTarticleID."'>Update The Category:</label>
