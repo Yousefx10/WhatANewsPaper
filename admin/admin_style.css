@@ -14,6 +14,7 @@ body{margin:0;
 
 .content_holder{
     display: inline-block;
+    margin-top: 10px;
 }
 
 .last_edit{
@@ -89,6 +90,7 @@ body{margin:0;
 .articles_settings{
     color: brown;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 .articles_settings span{
     transition: background-color 1s ease;
@@ -98,14 +100,36 @@ body{margin:0;
 }
 
 
-/*EDITING THE ARTICLE styiling settings*/
-.textarea-hidden {
-    display: none;
+
+.title-edit,.content-edit{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 30px;
+    color: green;
+    font-weight: bold;
+    display: block;
 }
 
-/*
-for the EDIT BUTTONS  purpose
-*/
+
+.content-edit{
+    height: 100px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.breaking-edit-label{
+display: block;
+}
+
+.edit_category{
+    border: none;
+    padding: 10px;
+}
+
+
+/*  */
 .textarea-hidden {
     display: none;
 }
+/*  */
+
