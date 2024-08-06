@@ -29,6 +29,7 @@ if ($result->num_rows > 0) {
 
         $ELEMENTtoecho.= "<textarea class='content-edit textarea-hidden'></textarea>";
         $ELEMENTtoecho.= "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
+        $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden'>is it breaking?<input id='$CURRENTarticleID' type='checkbox' class='breaking-edit'></label>";
         
         $currentauthorID = $row["author_id"];
 

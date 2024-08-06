@@ -10,7 +10,11 @@ console.log(article);
 
             const titleEdit = article.querySelector('.title-edit');
             const contentEdit = article.querySelector('.content-edit');
+            const breaking_checkbox = article.querySelector('.breaking-edit');
+
+
             const saveButton = article.querySelector('.save-button');
+
 
             if (titleEdit.classList.contains('textarea-hidden')) {
                 // Switch to edit mode
@@ -18,6 +22,9 @@ console.log(article);
                 contentEdit.value = contentDiv.textContent;
                 titleEdit.classList.remove('textarea-hidden');
                 contentEdit.classList.remove('textarea-hidden');
+
+                breaking_checkbox.parentElement.classList.remove('textarea-hidden');
+
                 saveButton.classList.remove('textarea-hidden');
                 titleDiv.classList.add('textarea-hidden');
                 contentDiv.classList.add('textarea-hidden');
@@ -27,9 +34,13 @@ console.log(article);
                 contentDiv.textContent = contentEdit.value;
                 titleEdit.classList.add('textarea-hidden');
                 contentEdit.classList.add('textarea-hidden');
+
+                breaking_checkbox.parentElement.classList.add('textarea-hidden');
+
                 saveButton.classList.add('textarea-hidden');
                 titleDiv.classList.remove('textarea-hidden');
                 contentDiv.classList.remove('textarea-hidden');
+
             }
         }
 
