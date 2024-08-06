@@ -36,6 +36,9 @@ console.log(article);
                 saveButton.classList.remove('textarea-hidden');
                 titleDiv.classList.add('textarea-hidden');
                 contentDiv.classList.add('textarea-hidden');
+
+
+                updated_breaking_span.classList.add('textarea-hidden');
             } else {
                 // Switch to view mode
                 titleDiv.textContent = titleEdit.value;
@@ -56,7 +59,8 @@ console.log(article);
                 updated_breaking_span.classList.add('sobreaking');
                 else
                 updated_breaking_span.classList.remove('sobreaking');
-
+                
+                updated_breaking_span.classList.remove('textarea-hidden');
 
                 saveButton.classList.add('textarea-hidden');
                 titleDiv.classList.remove('textarea-hidden');
