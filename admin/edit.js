@@ -12,6 +12,10 @@ console.log(article);
             const contentEdit = article.querySelector('.content-edit');
             const breaking_checkbox = article.querySelector('.breaking-edit');
             const updated_breaking_span = article.querySelector('.categorySPAN');
+            
+            
+            const update_category = article.querySelector('.edit_category');
+            const update_category_label = article.querySelector('.edit_category_label');
 
 
             const saveButton = article.querySelector('.save-button');
@@ -26,6 +30,8 @@ console.log(article);
                 contentEdit.classList.remove('textarea-hidden');
 
                 breaking_checkbox.parentElement.classList.remove('textarea-hidden');
+                update_category.classList.remove('textarea-hidden');
+                update_category_label.classList.remove('textarea-hidden');
 
                 saveButton.classList.remove('textarea-hidden');
                 titleDiv.classList.add('textarea-hidden');
@@ -39,6 +45,9 @@ console.log(article);
 
                 breaking_checkbox.parentElement.classList.add('textarea-hidden');
                 updated_breaking_span.classList.remove('so');//remove this prefix
+
+                update_category.classList.add('textarea-hidden');
+                update_category_label.classList.add('textarea-hidden');
 
                 if(breaking_checkbox.checked)
                 updated_breaking_span.classList.add('sobreaking');

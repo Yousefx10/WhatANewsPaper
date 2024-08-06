@@ -51,8 +51,8 @@ if ($result->num_rows > 0) {
         }
 
         $allofCATEGORIES=
-        "<label class='textarea-hidden' for='UPDATEcategory".$CURRENTarticleID."'>Update The Category:</label>
-        <select class='textarea-hidden' id='UPDATEcategory".$CURRENTarticleID."' name='UPDATEcategory'>
+        "<label class='textarea-hidden edit_category_label' for='UPDATEcategory".$CURRENTarticleID."'>Update The Category:</label>
+        <select class='textarea-hidden edit_category' id='UPDATEcategory".$CURRENTarticleID."' name='UPDATEcategory'>
             <option value='World' $selectCATEGORY1>World</option>
             <option value='Sports' $selectCATEGORY2>Sports</option>
             <option value='Business' $selectCATEGORY3>Business</option>
