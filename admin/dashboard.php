@@ -134,12 +134,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $edit_id = $_POST['edit_id'];
         $edit_title = $_POST['edit_title'];
         $edit_content = $_POST['edit_content'];
+
+        $UPDATEDcategory = $_POST['UPDATEDcategory'];
         $edit_breaking = $_POST['edit_breaking']=='true' ? 1 : 0;
 
         // Validate input (optional but recommended)
         if (!empty($edit_id) && !empty($edit_title) && !empty($edit_content)) {
             // Update query //for testing purpose
-            $sql = "UPDATE articles SET title='$edit_title', content='$edit_content',is_breaking='$edit_breaking' WHERE id=$edit_id";
+            $sql = "UPDATE articles SET title='$edit_title', content='$edit_content',is_breaking='$edit_breaking',category='$UPDATEDcategory' WHERE id=$edit_id";
     
             // Execute the query
             if ($conn->query($sql) === TRUE) {
