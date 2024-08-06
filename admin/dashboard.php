@@ -29,13 +29,34 @@ if ($result->num_rows > 0) {
 
         $ELEMENTtoecho.= "<textarea class='content-edit textarea-hidden'></textarea>";
         $ELEMENTtoecho.= "<button class='save-button textarea-hidden' onclick='saveChanges($CURRENTarticleID)'>Save</button>";
+        
+        $selectCATEGORY1="";
+        $selectCATEGORY2="";
+        $selectCATEGORY3="";
+        $selectCATEGORY4="";
+        switch($row["category"])
+        {
+            case 'World':
+                $selectCATEGORY1="selected";
+                break;
+            case 'Sports':
+                $selectCATEGORY2="selected";
+                break;
+            case 'Business':
+                $selectCATEGORY3="selected";
+                break;
+            case 'Stories':
+                $selectCATEGORY4="selected";
+                break;
+        }
+
         $allofCATEGORIES=
         "<label class='textarea-hidden' for='UPDATEcategory".$CURRENTarticleID."'>Update The Category:</label>
         <select class='textarea-hidden' id='UPDATEcategory".$CURRENTarticleID."' name='UPDATEcategory'>
-            <option value='World'>World</option>
-            <option value='Sports'>Sports</option>
-            <option value='Business'>Business</option>
-            <option value='Stories'>Stories</option>
+            <option value='World' $selectCATEGORY1>World</option>
+            <option value='Sports' $selectCATEGORY2>Sports</option>
+            <option value='Business' $selectCATEGORY3>Business</option>
+            <option value='Stories' $selectCATEGORY4>Stories</option>
         </select>";
 
         $ELEMENTtoecho.=$allofCATEGORIES;
