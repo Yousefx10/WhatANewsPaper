@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
         $ELEMENTtoecho.= "<h2 class='news_title'>" . $row["title"]. "</h2>";
 
         $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";
-        $ELEMENTtoecho.= "<div >" .$categorySPAN."<p class='news_content'>". $row["content"]. "</p></div>";
+        $ELEMENTtoecho.= "<div class='content_holder'>" .$categorySPAN."<p class='news_content'>". $row["content"]. "</p></div>";
         $ELEMENTtoecho.= "<input type='text' class='title-edit textarea-hidden'/>";
 
         $ELEMENTtoecho.= "<textarea class='content-edit textarea-hidden'></textarea>";

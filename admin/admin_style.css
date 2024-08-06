@@ -12,6 +12,10 @@ body{margin:0;
     /* border: 1px solid #ddd; */
 }
 
+.content_holder{
+    display: inline-block;
+}
+
 
 
 
