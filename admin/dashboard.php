@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
         
         $currentauthorID = $row["author_id"];
 
-        $ELEMENTtoecho.= "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em></p>";
+        $ELEMENTtoecho.= "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em> <span class='last_edit'>Last Edit (". $row["last_edit"].")</span></p>";
         $ELEMENTtoecho.= "<hr>";
         $ELEMENTtoecho.= "</div>";
 

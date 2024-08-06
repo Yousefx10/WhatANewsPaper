@@ -16,7 +16,9 @@ body{margin:0;
     display: inline-block;
 }
 
-
+.last_edit{
+    font-size: smaller;
+}
 
 
 
