@@ -39,9 +39,9 @@ if ($result->num_rows > 0) {
         </select>";
         $ELEMENTtoecho.=$allofCATEGORIES;
         $breaking = $breaking=='breaking' ? 'checked' : '';
-        $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden'>is it breaking?<input onclick='console.log(this.checked);' id='$CURRENTarticleID' type='checkbox' class='breaking-edit' $breaking></label>";
+        $ELEMENTtoecho.= "<label for='$CURRENTarticleID' class='textarea-hidden'>is it breaking?<input id='$CURRENTarticleID' type='checkbox' class='breaking-edit' $breaking></label>";
         
-        $currentauthorID = $row["author_id"];
+        //$currentauthorID = $row["author_id"];//i think no need for this
 
         $ELEMENTtoecho.= "<p><em>By " . $row["author_name"]. " on " . $row["created_at"]. "</em> <span class='last_edit'>Last Edit (". $row["last_edit"].")</span></p>";
         $ELEMENTtoecho.= "<hr>";
@@ -443,7 +443,7 @@ echo showarticlesnow();
             .then(response => response.text())
             .then(data => {
             //    alert(data); // Show the response from the server
-                console.log(data);
+                //console.log(data);
                 // Optionally, you could remove the row from the DOM or update the UI
 
                var parentDiv = OLDnews.parentElement;
@@ -524,9 +524,7 @@ echo showarticlesnow();
 
 
     </script>
-        <script>
-        console.log('This script is executed.');
-        // Add more JavaScript code here
-    </script>
+
+
     </body>
 </html>
