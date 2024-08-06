@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
         $CURRENTarticleID = $row["id"];
 
         $ELEMENTtoecho.= "<div class='div_article ".$row["category"]."  $breaking' data-postid='$CURRENTarticleID' >";
-        $ELEMENTtoecho.="<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$CURRENTarticleID\")'>[Edit]</span></div>";
+        $ELEMENTtoecho.="<div class='articles_settings'><span onclick='callmetoALERT(\"$CURRENTarticleID\",this)'>[Delete]</span><span onclick='toggleEdit(\"$CURRENTarticleID\",this)'>[Edit]</span></div>";
         $ELEMENTtoecho.= "<h2 class='news_title'>" . $row["title"]. "</h2>";
 
         $categorySPAN="<span class='categorySPAN so$breaking'>". $row["category"]."</span> ";

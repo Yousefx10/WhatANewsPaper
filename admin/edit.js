@@ -1,9 +1,9 @@
 
     //THE EDIT FUNCTION AREA
-        function toggleEdit(articleId) {
+        function toggleEdit(articleId, currentEDITbtn) {
             const article = document.querySelector(`.div_article[data-postid="${articleId}"]`);
-
-console.log(article);
+            
+            //console.log(article);
 
             const titleDiv = article.querySelector('.news_title');
             const contentDiv = article.querySelector('.news_content');
@@ -20,10 +20,13 @@ console.log(article);
 
             const saveButton = article.querySelector('.save-button');
 
-                console.log(updated_breaking_span);
+                //console.log(updated_breaking_span);
 
             if (titleEdit.classList.contains('textarea-hidden')) {
                 // Switch to edit mode
+
+                currentEDITbtn.innerHTML="[Cancel Editing)";
+
                 titleEdit.value = titleDiv.textContent;
                 contentEdit.value = contentDiv.textContent;
                 titleEdit.classList.remove('textarea-hidden');
@@ -41,6 +44,9 @@ console.log(article);
                 updated_breaking_span.classList.add('textarea-hidden');
             } else {
                 // Switch to view mode
+
+                currentEDITbtn.innerHTML="[Edit]";
+
                 titleDiv.textContent = titleEdit.value;
                 contentDiv.textContent = contentEdit.value;
                 titleEdit.classList.add('textarea-hidden');
