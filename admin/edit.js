@@ -90,9 +90,10 @@ console.log(article);
             .then(response => response.json())
             .then(data => {
               console.log(data.message);
-              //document.getElementById('test').innerHTML = newContent;
+              console.log("did you see the new result");
+              document.getElementById('page2b').innerHTML = data.message;
 
             })
            //.catch(error => console.error('Error:', error));
         }
-        updateCURRENTarticles();
+        //updateCURRENTarticles();

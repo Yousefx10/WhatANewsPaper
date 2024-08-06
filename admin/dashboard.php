@@ -504,6 +504,7 @@ echo showarticlesnow();
                     document.getElementById("pagebtn2a").style.display="block";
                     document.getElementById("pagebtn2b").style.display="block";
                     console.log("hello");
+                    updateCURRENTarticles();
                 }
 
 
