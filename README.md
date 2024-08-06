@@ -9,7 +9,7 @@ Just a simple way to have a good and strong newspaper for online use.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
+- [UPCOMING FEATURES](#features)
 
 ## Installation
 
@@ -22,3 +22,7 @@ Example:
 ```bash
 # Clone the repository
 git clone https://github.com/Yousefx10/WhatANewsPaper.git
+```
+
+## FEATURES
+#### Will be adding the limit to the news that will be displayed
