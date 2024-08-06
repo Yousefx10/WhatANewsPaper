@@ -35,7 +35,8 @@ if ($result->num_rows > 0) {
         $ELEMENTtoecho.= "<hr>";
         $ELEMENTtoecho.= "</div>";
 
-        echo $ELEMENTtoecho;
+
+        return $ELEMENTtoecho;
         //$currentpostID++;
     }
 } else {
@@ -55,10 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['testonly']) && !empty($_POST['testonly'])) {
 
             // Your PHP function logic here
-            $response = ['message' => 'RETURN THE NEWS DATA'];
+            $response = ['message' => showarticlesnow()];
 
             echo json_encode($response);
-            showarticlesnow();
+            
            exit();
 
     }
@@ -372,7 +373,7 @@ echo '<div>
 
 
 //calling the function so we can show the news article for the first time
-showarticlesnow();
+echo showarticlesnow();
 
 
 
