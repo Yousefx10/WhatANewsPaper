@@ -61,7 +61,9 @@ require 'admin/sql.php';
         <div class="title">
         Enjoy Reading
         </div>
-
+<div id='searchBOX'>
+    [---Search Here---]
+</div>
 
 <?php
 
