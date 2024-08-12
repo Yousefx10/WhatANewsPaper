@@ -94,3 +94,9 @@ body{margin:0;    background-color: #f4f4f4;}
     text-align: center;
     margin: auto;
 }
+#searchBOX input{
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    min-width: 200px
+}

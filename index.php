@@ -62,7 +62,7 @@ require 'admin/sql.php';
         Enjoy Reading
         </div>
 <div id='searchBOX'>
-    [---Search Here---]
+    <input type="text"/>
 </div>
 
 <?php
