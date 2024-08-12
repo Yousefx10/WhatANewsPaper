@@ -62,7 +62,8 @@ require 'admin/sql.php';
         Enjoy Reading
         </div>
 <div id='searchBOX'>
-    <input type="text"/>
+    <input type="text" placeholder="You Can Type To Search"/>
+    <span>&#x1F50D;</span>
 </div>
 
 <?php
