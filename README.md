@@ -25,4 +25,9 @@ git clone https://github.com/Yousefx10/WhatANewsPaper.git
 ```
 
 ## FEATURES
-#### Will be adding the limit to the news that will be displayed
+#### Will be adding the limit to the news that will be displayed.
+#### Tool that can design a "news poster" that can be shared later into social media.
+#### Live podcast.
+#### Recoreded history podcast.
+#### Visitors Reactions.
+#### Sharing into social media option for visitors
