@@ -33,3 +33,4 @@ git clone https://github.com/Yousefx10/WhatANewsPaper.git
 #### Sharing into social media option for visitors.
 #### Adding weather option and choose city.
 #### Adding top lines news but in way it feels so important.
+#### News letter with mailing system.
