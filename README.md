@@ -37,4 +37,4 @@ git clone https://github.com/Yousefx10/WhatANewsPaper.git
 
 ---
 
-<p style='align:center'>Made with Love ❤️</p>
+<p style='text-align:center'>Made with Love ❤️</p>
