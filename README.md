@@ -34,3 +34,7 @@ git clone https://github.com/Yousefx10/WhatANewsPaper.git
 #### Adding weather option and choose city.
 #### Adding top lines news but in way it feels so important.
 #### News letter with mailing system.
+
+---
+
+<p style='align:center'>Made with Love ❤️</p>
