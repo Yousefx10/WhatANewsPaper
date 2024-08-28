@@ -93,15 +93,21 @@ body{margin:0;    background-color: #f4f4f4;}
 #searchBOX{
     text-align: center;
     margin: auto;
+    margin-bottom: 10px;
 }
 #searchBOX input{
     padding: 10px;
     border-radius: 20px;
     border: 1px solid gray;
-    min-width: 200px
+
+    width: 250px;
+    
+    transition: width 0.4s ease; /* Smooth transition */
 }
 
-
+#searchBOX input:focus {
+    width: 500px;
+}
 
 .category{
     border: 1px solid #000;
