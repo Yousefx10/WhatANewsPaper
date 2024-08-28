@@ -3,12 +3,13 @@
 require 'admin/sql.php';
 
 
+$setting0_is_activated="";
 $setting1_wlc_message="";
 $setting2_project_name="";
 $setting3_background_color="";
 
 
-$sql_SETTINGS ="SELECT wlc_msg, project_name,bg_color FROM settings LIMIT 1";
+$sql_SETTINGS ="SELECT wlc_msg, project_name,bg_color,is_activated FROM settings LIMIT 1";
 
 $result = $conn->query($sql_SETTINGS);
 
@@ -18,8 +19,16 @@ if ($result->num_rows > 0) {
     $setting1_wlc_message = $row['wlc_msg'];
     $setting2_project_name = $row['project_name'];
     $setting3_background_color = $row['bg_color'];
+    $setting0_is_activated = $row['is_activated'];
 }
 
+
+if($setting0_is_activated=="0")
+{
+    echo "<p><em>Website Is Under Maintenance</em></p>";
+    //soon will adding more details like some pictures to reffer Maintenance status
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
