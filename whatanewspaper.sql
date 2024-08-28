@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2024 at 01:13 AM
+-- Generation Time: Aug 28, 2024 at 10:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,15 +50,16 @@ CREATE TABLE `settings` (
   `project_name` varchar(50) NOT NULL,
   `bg_color` varchar(20) NOT NULL,
   `feature_status` tinyint(4) NOT NULL COMMENT '0 for none and 1 for left and 2 for middle and 3 for right',
-  `simple_mode` tinyint(4) NOT NULL COMMENT 'this mode will turn off feature mode so 1 for enabled and 0 for disapled'
+  `simple_mode` tinyint(4) NOT NULL COMMENT 'this mode will turn off feature mode so 1 for enabled and 0 for disapled',
+  `wlc_msg` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `is_activated`, `project_name`, `bg_color`, `feature_status`, `simple_mode`) VALUES
-(1, 0, 'WhatANewsPaper', '#f4f4f4', 2, 0);
+INSERT INTO `settings` (`id`, `is_activated`, `project_name`, `bg_color`, `feature_status`, `simple_mode`, `wlc_msg`) VALUES
+(1, 0, 'WhatANewsPaper', '#f4f4f4', 2, 0, 'Enjoy Reading');
 
 -- --------------------------------------------------------
 
