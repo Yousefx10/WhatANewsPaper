@@ -441,7 +441,7 @@ echo showarticlesnow();
         <div id="page4" class="" style="display: none;">
         <p>Settings Content</p>
         <hr/>
-        <p>Activate The Project To Be Public</p>
+        <p style="text-shadow: 0 0 10px #07c759;color: green;">Activate The Project To Be Public</p>
 
         <label class="switch">
         <input type="checkbox" checked>
