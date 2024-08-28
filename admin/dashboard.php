@@ -440,6 +440,14 @@ echo showarticlesnow();
         </div>
         <div id="page4" class="" style="display: none;">
         <p>Settings Content</p>
+        <hr/>
+        <p>Activate The Project To Be Public</p>
+
+        <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+        </label>
+
         </div>
     </div>
 </div>
