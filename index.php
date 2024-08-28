@@ -2,6 +2,18 @@
 
 require 'admin/sql.php';
 
+
+$setting1_wlc_message="";
+$sql_SETTINGS ="SELECT wlc_msg FROM settings LIMIT 1";
+
+$result = $conn->query($sql_SETTINGS);
+
+if ($result->num_rows > 0) {
+    // Step 3: Fetch the result and display it
+    $row = $result->fetch_assoc();
+    $setting1_wlc_message = $row['wlc_msg'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +71,7 @@ require 'admin/sql.php';
 
 
         <div class="title">
-        Enjoy Reading
+        <?php echo $setting1_wlc_message; ?>
         </div>
 <div id='searchBOX'>
     <input type="text" placeholder="You Can Type To Search"/>
