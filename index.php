@@ -5,7 +5,10 @@ require 'admin/sql.php';
 
 $setting1_wlc_message="";
 $setting2_project_name="";
-$sql_SETTINGS ="SELECT wlc_msg, project_name FROM settings LIMIT 1";
+$setting3_background_color="";
+
+
+$sql_SETTINGS ="SELECT wlc_msg, project_name,bg_color FROM settings LIMIT 1";
 
 $result = $conn->query($sql_SETTINGS);
 
@@ -14,6 +17,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $setting1_wlc_message = $row['wlc_msg'];
     $setting2_project_name = $row['project_name'];
+    $setting3_background_color = $row['bg_color'];
 }
 
 ?>
@@ -26,6 +30,11 @@ if ($result->num_rows > 0) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="style.css"/>
+        <style>
+            body{background-color: <?php echo $setting3_background_color; ?> ;}
+
+        </style>
+
     </head>
     <body>
         <div class="container">
