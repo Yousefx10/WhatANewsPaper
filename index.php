@@ -4,7 +4,8 @@ require 'admin/sql.php';
 
 
 $setting1_wlc_message="";
-$sql_SETTINGS ="SELECT wlc_msg FROM settings LIMIT 1";
+$setting2_project_name="";
+$sql_SETTINGS ="SELECT wlc_msg, project_name FROM settings LIMIT 1";
 
 $result = $conn->query($sql_SETTINGS);
 
@@ -12,6 +13,7 @@ if ($result->num_rows > 0) {
     // Step 3: Fetch the result and display it
     $row = $result->fetch_assoc();
     $setting1_wlc_message = $row['wlc_msg'];
+    $setting2_project_name = $row['project_name'];
 }
 
 ?>
@@ -57,7 +59,9 @@ if ($result->num_rows > 0) {
 
         <div class="nav">
             <hr/>
-            <h1>What A News Papers</h1>
+            <h1>
+            <?php echo $setting2_project_name; ?>
+            </h1>
 
             <div class="nav btn">
                 <span onclick="showbycategory('World');">World</span>
