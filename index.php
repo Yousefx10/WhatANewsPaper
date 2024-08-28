@@ -117,7 +117,7 @@ if ($result->num_rows > 0) {
 
         //THE DEFAULT TO BE DISPLAYED IS (World)
         document.querySelectorAll('.World').forEach(function(element) {
-                element.style.display = 'block';
+                element.style.display = 'inline-block';
             });
 
 
@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
     function showbycategory(current_category){
         hide_all_categories();
         document.querySelectorAll('.'+current_category).forEach(function(current_category) {
-            current_category.style.display = 'block';
+            current_category.style.display = 'inline-block';
             // console.log(current_category);
             });
     }

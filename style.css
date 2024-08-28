@@ -100,3 +100,11 @@ body{margin:0;    background-color: #f4f4f4;}
     border: 1px solid gray;
     min-width: 200px
 }
+
+
+
+.category{
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 1px;
+}
