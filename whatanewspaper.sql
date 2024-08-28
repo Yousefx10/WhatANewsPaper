@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2024 at 10:54 PM
+-- Generation Time: Aug 28, 2024 at 11:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -59,7 +59,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `is_activated`, `project_name`, `bg_color`, `feature_status`, `simple_mode`, `wlc_msg`) VALUES
-(1, 0, 'WhatANewsPaper', '#f4f4f4', 2, 0, 'Enjoy Reading');
+(1, 1, 'What A NewsPaper', '#f4f4f4', 2, 0, 'Enjoy Reading');
 
 -- --------------------------------------------------------
 
