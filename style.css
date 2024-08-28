@@ -108,3 +108,12 @@ body{margin:0;    background-color: #f4f4f4;}
     padding: 20px;
     margin: 1px;
 }
+
+.category h2{
+    margin-bottom: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+.category h2:hover{
+    color: blue;
+}
