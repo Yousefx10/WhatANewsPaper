@@ -211,5 +211,17 @@ display: block;
     text-shadow: 0 0 10px #07c759;
     color: green;
     display: inline-block;
-    min-width: 200px;
+    min-width: 250px;
+  }
+
+
+  .setting_btn{
+    padding: 20px;
+    border: 1px dotted black;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .setting_btn:hover{
+    background-color: #ccc;
   }

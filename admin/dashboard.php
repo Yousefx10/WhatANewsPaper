@@ -461,7 +461,9 @@ echo showarticlesnow();
 <p class='setting_p'>Background Color</p>
 <input type="color"/>
 <br/>
-<button>SAVE CHANGES</button>
+<button class="setting_btn">SAVE CHANGES</button>
+
+
         </div>
     </div>
 </div>
