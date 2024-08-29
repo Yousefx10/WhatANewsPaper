@@ -458,7 +458,9 @@ echo showarticlesnow();
 $setting0_is_activated="";
 $setting1_project_name="";
 $setting2_wlc_msg="";
-$sql_SETTINGS ="SELECT is_activated, project_name, wlc_msg FROM settings LIMIT 1";
+$setting3_color="";
+
+$sql_SETTINGS ="SELECT is_activated, project_name, wlc_msg, bg_color FROM settings LIMIT 1";
 $result = $conn->query($sql_SETTINGS);
 
 if ($result->num_rows > 0) {
@@ -466,6 +468,7 @@ if ($result->num_rows > 0) {
     $setting0_is_activated = $row['is_activated'];
     $setting1_project_name = $row['project_name'];
     $setting2_wlc_msg = $row['wlc_msg'];
+    $setting3_color = $row['bg_color'];
 }
 
 if($setting0_is_activated=="1")
@@ -495,7 +498,7 @@ if($setting0_is_activated=="1")
 <input type="text" value=" <?php echo $setting2_wlc_msg ?>"/>
 <br/>
 <p class='setting_p'>Background Color</p>
-<input type="color"/>
+<input type="color" value="<?php echo $setting3_color ?>"/>
 <br/>
 
 
