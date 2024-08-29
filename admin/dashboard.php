@@ -113,16 +113,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // THIS FUCTION IS RESPONSIBLE TO UPDATE CURRENT SETTINGS
     if (isset($_POST['CURRENTsettings']) && !empty($_POST['CURRENTsettings'])) {
-        $CURRENTsettings = $_POST['CURRENTsettings']=='true' ? 1 : 0;
+        
+        $CURRENTsettings = $_POST['CURRENTsettings']=="true" ? 1 : 0;
 
-        $sql = "UPDATE settings SET is_activated='$CURRENTsettings'";
+        echo "[".$_POST['CURRENTsettings']."]";
+        echo $CURRENTsettings;
+
+        $new_setting_project_name = $_POST['new_setting_project_name'];
+        $new_setting_wlc_msg = $_POST['new_setting_wlc_msg'];
+        $new_setting_bg_color = $_POST['new_setting_bg_color'];
+
+        $sql = "UPDATE settings SET is_activated='$CURRENTsettings', project_name='$new_setting_project_name', wlc_msg='$new_setting_wlc_msg', bg_color='$new_setting_bg_color'";
         if ($conn->query($sql) === TRUE) {
             echo "Record updated successfully";
         } else {
             echo "Error updating record: " . $conn->error;
         }
 
-        
+
         exit();
         }
 
@@ -492,13 +500,13 @@ if($setting0_is_activated=="1")
 <span style="clear: both;"><br/></span>
 
 <p class='setting_p'>Project Name</p>
-<input type="text" value=" <?php echo $setting1_project_name ?>"/>
+<input id='new_setting_project_name' type="text" value="<?php echo $setting1_project_name ?>"/>
 <br/>
 <p class='setting_p'>Welcome Message</p>
-<input type="text" value=" <?php echo $setting2_wlc_msg ?>"/>
+<input id='new_setting_wlc_msg' type="text" value="<?php echo $setting2_wlc_msg ?>"/>
 <br/>
 <p class='setting_p'>Background Color</p>
-<input type="color" value="<?php echo $setting3_color ?>"/>
+<input id='new_setting_bg_color' type="color" value="<?php echo $setting3_color?>"/>
 <br/>
 
 
@@ -566,12 +574,16 @@ if($setting0_is_activated=="1")
             function updateSETTINGS()
             {
             var CURRENTsettings = document.getElementById('activation_check_input').checked;
+                console.log(CURRENTsettings);
+            var new_setting_project_name = document.getElementById('new_setting_project_name').value;
+            var new_setting_wlc_msg      = document.getElementById('new_setting_wlc_msg').value;
+            var new_setting_bg_color     = document.getElementById('new_setting_bg_color').value;
             fetch('dashboard.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: `CURRENTsettings=${encodeURIComponent(CURRENTsettings)}`
+                body: `CURRENTsettings=${encodeURIComponent(CURRENTsettings)}&new_setting_project_name=${encodeURIComponent(new_setting_project_name)}&new_setting_wlc_msg=${encodeURIComponent(new_setting_wlc_msg)}&new_setting_bg_color=${encodeURIComponent(new_setting_bg_color)}`
             })
             .then(response => response.text())
             .then(data => {
