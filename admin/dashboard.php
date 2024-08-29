@@ -116,9 +116,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $CURRENTsettings = $_POST['CURRENTsettings']=="true" ? 1 : 0;
 
-        echo "[".$_POST['CURRENTsettings']."]";
-        echo $CURRENTsettings;
-
         $new_setting_project_name = $_POST['new_setting_project_name'];
         $new_setting_wlc_msg = $_POST['new_setting_wlc_msg'];
         $new_setting_bg_color = $_POST['new_setting_bg_color'];
@@ -574,7 +571,7 @@ if($setting0_is_activated=="1")
             function updateSETTINGS()
             {
             var CURRENTsettings = document.getElementById('activation_check_input').checked;
-                console.log(CURRENTsettings);
+
             var new_setting_project_name = document.getElementById('new_setting_project_name').value;
             var new_setting_wlc_msg      = document.getElementById('new_setting_wlc_msg').value;
             var new_setting_bg_color     = document.getElementById('new_setting_bg_color').value;
