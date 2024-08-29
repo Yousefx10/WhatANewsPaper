@@ -206,3 +206,10 @@ display: block;
   .switch .slider.round:before {
     border-radius: 50%;
   }
+
+  .setting_p{
+    text-shadow: 0 0 10px #07c759;
+    color: green;
+    display: inline-block;
+    min-width: 200px;
+  }

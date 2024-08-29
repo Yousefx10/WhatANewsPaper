@@ -441,13 +441,27 @@ echo showarticlesnow();
         <div id="page4" class="" style="display: none;">
         <p>Settings Content</p>
         <hr/>
-        <p style="text-shadow: 0 0 10px #07c759;color: green;">Activate The Project To Be Public</p>
 
-        <label class="switch">
-        <input type="checkbox" checked>
-        <span class="slider round"></span>
-        </label>
+        <p class='setting_p'>Activate The Project To Be Public</p>
 
+        <div style="float: right;">
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+<span style="clear: both;"><br/></span>
+
+<p class='setting_p'>Project Name</p>
+<input type="text"/>
+<br/>
+<p class='setting_p'>Welcome Message</p>
+<input type="text"/>
+<br/>
+<p class='setting_p'>Background Color</p>
+<input type="color"/>
+<br/>
+<button>SAVE CHANGES</button>
         </div>
     </div>
 </div>
