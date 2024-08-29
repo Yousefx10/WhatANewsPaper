@@ -438,6 +438,25 @@ echo showarticlesnow();
         <div id="page3" class="" style="display: none;">
         <p>Accounts Content</p>
         </div>
+
+
+<?php
+
+$setting0_is_activated="";
+$sql_SETTINGS ="SELECT is_activated FROM settings LIMIT 1";
+$result = $conn->query($sql_SETTINGS);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $setting0_is_activated = $row['is_activated'];
+}
+
+if($setting0_is_activated=="0")
+{
+    $setting0_is_activated="checked";
+}
+?>
+        
         <div id="page4" class="" style="display: none;">
         <p>Settings Content</p>
         <hr/>
@@ -446,7 +465,7 @@ echo showarticlesnow();
 
         <div style="float: right;">
             <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox" <?php echo $setting0_is_activated ?> >
                 <span class="slider round"></span>
             </label>
         </div>
