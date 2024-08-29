@@ -111,7 +111,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
+    // Check if the 'id' parameter is set in the POST data
+    if (isset($_POST['CURRENTsettings']) && !empty($_POST['CURRENTsettings'])) {
+        $CURRENTsettings = $_POST['CURRENTsettings']=='true' ? 1 : 0;
 
+        $sql = "UPDATE settings SET is_activated='$CURRENTsettings'";
+        if ($conn->query($sql) === TRUE) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . $conn->error;
+        }
+
+        
+        exit();
+        }
 
     // Check if the 'id' parameter is set in the POST data
     if (isset($_POST['iddd']) && !empty($_POST['iddd'])) {
@@ -451,7 +464,7 @@ if ($result->num_rows > 0) {
     $setting0_is_activated = $row['is_activated'];
 }
 
-if($setting0_is_activated=="0")
+if($setting0_is_activated=="1")
 {
     $setting0_is_activated="checked";
 }
@@ -465,7 +478,7 @@ if($setting0_is_activated=="0")
 
         <div style="float: right;">
             <label class="switch">
-                <input type="checkbox" <?php echo $setting0_is_activated ?> >
+                <input id='activation_check_input' type="checkbox" <?php echo $setting0_is_activated ?> >
                 <span class="slider round"></span>
             </label>
         </div>
@@ -480,7 +493,9 @@ if($setting0_is_activated=="0")
 <p class='setting_p'>Background Color</p>
 <input type="color"/>
 <br/>
-<button class="setting_btn">SAVE CHANGES</button>
+
+
+<button class="setting_btn" onclick="updateSETTINGS()">SAVE CHANGES</button>
 
 
         </div>
@@ -539,6 +554,28 @@ if($setting0_is_activated=="0")
 
             }
 
+
+// FUNCTION TO UPDATE SETTINGS
+            function updateSETTINGS()
+            {
+            var CURRENTsettings = document.getElementById('activation_check_input').checked;
+            fetch('dashboard.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `CURRENTsettings=${encodeURIComponent(CURRENTsettings)}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Show the response from the server
+
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            }
     </script>
 
 
