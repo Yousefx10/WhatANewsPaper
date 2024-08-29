@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
-    // Check if the 'id' parameter is set in the POST data
+    // THIS FUCTION IS RESPONSIBLE TO UPDATE CURRENT SETTINGS
     if (isset($_POST['CURRENTsettings']) && !empty($_POST['CURRENTsettings'])) {
         $CURRENTsettings = $_POST['CURRENTsettings']=='true' ? 1 : 0;
 
@@ -456,12 +456,14 @@ echo showarticlesnow();
 <?php
 
 $setting0_is_activated="";
-$sql_SETTINGS ="SELECT is_activated FROM settings LIMIT 1";
+$setting1_project_name="";
+$sql_SETTINGS ="SELECT is_activated, project_name FROM settings LIMIT 1";
 $result = $conn->query($sql_SETTINGS);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $setting0_is_activated = $row['is_activated'];
+    $setting1_project_name = $row['project_name'];
 }
 
 if($setting0_is_activated=="1")
@@ -485,7 +487,7 @@ if($setting0_is_activated=="1")
 <span style="clear: both;"><br/></span>
 
 <p class='setting_p'>Project Name</p>
-<input type="text"/>
+<input type="text" value=" <?php echo $setting1_project_name ?>"/>
 <br/>
 <p class='setting_p'>Welcome Message</p>
 <input type="text"/>
