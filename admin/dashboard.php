@@ -457,13 +457,15 @@ echo showarticlesnow();
 
 $setting0_is_activated="";
 $setting1_project_name="";
-$sql_SETTINGS ="SELECT is_activated, project_name FROM settings LIMIT 1";
+$setting2_wlc_msg="";
+$sql_SETTINGS ="SELECT is_activated, project_name, wlc_msg FROM settings LIMIT 1";
 $result = $conn->query($sql_SETTINGS);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $setting0_is_activated = $row['is_activated'];
     $setting1_project_name = $row['project_name'];
+    $setting2_wlc_msg = $row['wlc_msg'];
 }
 
 if($setting0_is_activated=="1")
@@ -490,7 +492,7 @@ if($setting0_is_activated=="1")
 <input type="text" value=" <?php echo $setting1_project_name ?>"/>
 <br/>
 <p class='setting_p'>Welcome Message</p>
-<input type="text"/>
+<input type="text" value=" <?php echo $setting2_wlc_msg ?>"/>
 <br/>
 <p class='setting_p'>Background Color</p>
 <input type="color"/>
