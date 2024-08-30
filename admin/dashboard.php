@@ -131,6 +131,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
         }
 
+        //UPDATING ALL USER SETTINGS FROM HERE
+        if (isset($_POST['UserID_updating']) && !empty($_POST['UserID_updating'])) {
+            $user = $_POST['UserID_updating'];
+            $newPassword = $_POST['password_updating'];
+            
+            // Update user password
+            $sql = "UPDATE users SET password = ? WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); // Hashing the password
+            $stmt->bind_param('ss', $hashedPassword, $user);
+            
+            if ($stmt->execute()) {
+                echo "Password updated successfully.";
+            } else {
+                echo "Error updating password: " . $stmt->error;
+            }
+            
+            $stmt->close();
+            exit();
+        }
+
     // Check if the 'id' parameter is set in the POST data
     if (isset($_POST['iddd']) && !empty($_POST['iddd'])) {
 
@@ -478,6 +499,8 @@ echo showarticlesnow();
                 Permission [1] : Can Add new Articles (And they can edit / delete them).
                 Permission [0] : Can Only Add New Articles (Without the option to delete them or make an edit).
             */
+
+            
             ?>
 <script>
 //Changing User Password script.
@@ -486,11 +509,29 @@ function updateUSER_password(UserID)
 {
     let NewPasswordForUser = prompt("Please Type Your New Password:");
 
-    if (NewPasswordForUser !== null) {
-        alert("Your Password: [" + NewPasswordForUser + "] Your ID:["+ UserID +"]");
-    } else {
+    if (NewPasswordForUser == null) {
         alert("Password Field Can't Be Empty");
+        return;
     }
+
+
+    fetch('dashboard.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `UserID_updating=${encodeURIComponent(UserID)}&password_updating=${encodeURIComponent(NewPasswordForUser)}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Show the response from the server
+
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
+
 }
 
 
