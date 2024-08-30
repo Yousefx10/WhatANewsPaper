@@ -456,14 +456,15 @@ echo showarticlesnow();
         <div id="page3" class="" style="display: none;">
         <p>Accounts Content</p>
             <?php
-                $sql = "SELECT username, permissions, author FROM users";
+                $sql = "SELECT id, username, permissions, author FROM users";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
                     // Output data of each row
                     while($row = $result->fetch_assoc()) {
+                        $currentID = $row["id"];
                         echo "Username: "           . $row["username"]. 
-                        "<br/> - Password: "        . "<button>Change Password</button>".
+                        "<br/> - Password: "        . "<button onclick='updateUSER_password($currentID)'>Change Password</button>".
                         "<br/> - Permissions: "     . $row["permissions"].
                         "<br/> - Author: "          . $row["author"]. "<br/><hr/>";
                     }
@@ -480,6 +481,18 @@ echo showarticlesnow();
             ?>
 <script>
 //Changing User Password script.
+
+function updateUSER_password(UserID)
+{
+    let NewPasswordForUser = prompt("Please Type Your New Password:");
+
+    if (NewPasswordForUser !== null) {
+        alert("Your Password: [" + NewPasswordForUser + "] Your ID:["+ UserID +"]");
+    } else {
+        alert("Password Field Can't Be Empty");
+    }
+}
+
 
 
 
