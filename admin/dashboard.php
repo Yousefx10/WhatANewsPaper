@@ -455,6 +455,19 @@ echo showarticlesnow();
 
         <div id="page3" class="" style="display: none;">
         <p>Accounts Content</p>
+            <?php
+                $sql = "SELECT username, password, permissions, author FROM users";
+                $result = $conn->query($sql);
+                
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "Username: " . $row["username"]. "<br/> - Password: " . $row["password"]. "<br/> - Permissions: " . $row["permissions"]. "<br/> - Author: " . $row["author"]. "<br>";
+                    }
+                }
+                
+            ?>
+
         </div>
 
 
