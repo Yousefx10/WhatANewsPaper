@@ -476,10 +476,15 @@ echo showarticlesnow();
                 Permission [2] : Can Access The (Overview) Screen in the dashboard.
                 Permission [1] : Can Add new Articles (And they can edit / delete them).
                 Permission [0] : Can Only Add New Articles (Without the option to delete them or make an edit).
-
-            /*
+            */
             ?>
+<script>
+//Changing User Password script.
 
+
+
+
+</script>
         </div>
 
 
