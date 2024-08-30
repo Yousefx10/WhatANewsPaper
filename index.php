@@ -181,6 +181,12 @@ if ($result->num_rows > 0) {
             hours = hours ? hours : 12; // the hour '0' should be '12'
             const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
             document.getElementById('time').textContent = formattedTime;
+
+    // Call getFullDate() and getDayName() if it's midnight
+    if (hours === 12 && minutes === '00' && seconds === '00' && ampm === 'AM') {
+        getFullDate();
+        getDayName();
+    }
         }
 
         
