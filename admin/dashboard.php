@@ -468,7 +468,16 @@ echo showarticlesnow();
                         "<br/> - Author: "          . $row["author"]. "<br/><hr/>";
                     }
                 }
-                
+            /*
+                #[The Permissions Instructions]
+                Permission [5] : The Owner Of Everything (can do what other permissions number can do).
+                Permission [4] : Can Access The Project Settings Page And make changes.
+                Permission [3] : Can Add New Users or remove old users in dashboard.
+                Permission [2] : Can Access The (Overview) Screen in the dashboard.
+                Permission [1] : Can Add new Articles (And they can edit / delete them).
+                Permission [0] : Can Only Add New Articles (Without the option to delete them or make an edit).
+
+            /*
             ?>
 
         </div>
