@@ -504,8 +504,10 @@ echo showarticlesnow();
             ?>
             <button>Add New User</button>
             <br><br>
-            <form>
+            <form id='NewAccountForm'>
                 <input type="text" placeholder="Account's Name"/>
+                <br><br>
+                <input type="text" placeholder="Author's Name"/>
                 <br><br>
                 <input type="text" placeholder="Default Account Password"/>
                 <br/>

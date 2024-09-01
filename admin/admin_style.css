@@ -225,3 +225,9 @@ display: block;
   .setting_btn:hover{
     background-color: #ccc;
   }
+
+
+  #NewAccountForm{}
+  #NewAccountForm input[type="text"]{
+    padding: 10px;
+  }
