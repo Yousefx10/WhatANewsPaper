@@ -492,7 +492,7 @@ echo showarticlesnow();
                 }
             /*
                 #[The Permissions Instructions]
-                Permission [5] : The Owner Of Everything (can do what other permissions number can do).
+                Permission [5] : The Owner Of Everything (can do what other permissions number can do)[can't be deleted].
                 Permission [4] : Can Access The Project Settings Page And make changes.
                 Permission [3] : Can Add New Users or remove old users in dashboard.
                 Permission [2] : Can Access The (Overview) Screen in the dashboard.
@@ -502,6 +502,7 @@ echo showarticlesnow();
 
             
             ?>
+            <button>Add New User</button>
 <script>
 //Changing User Password script.
 
