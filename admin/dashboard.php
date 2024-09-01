@@ -111,6 +111,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
+
+    //Here For Adding New User Account To The DATABASE.
+    if (isset($_POST['submit_new_acc']) && !empty($_POST['submit_new_acc'])) {
+        $ACC_name =$conn->real_escape_string( $_POST['ACC_name']);
+        $ACC_author =$conn->real_escape_string( $_POST['ACC_author']);
+
+        $ACC_password = password_hash($_POST['ACC_password'], PASSWORD_DEFAULT);
+        $Permissions =$conn->real_escape_string( $_POST['Permissions']);
+
+  $sql = "INSERT INTO users (username, password, permissions, author) VALUES ('$ACC_name', '$ACC_password', '$Permissions', '$ACC_author')";
+
+  if ($conn->query($sql) === TRUE) {
+    //echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+exit();
+    }
+
+
     // THIS FUCTION IS RESPONSIBLE TO UPDATE CURRENT SETTINGS
     if (isset($_POST['CURRENTsettings']) && !empty($_POST['CURRENTsettings'])) {
         
@@ -504,38 +526,38 @@ echo showarticlesnow();
             ?>
             <button>Add New User</button>
             <br><br>
-            <form id='NewAccountForm'>
-                <input type="text" placeholder="Account's Name"/>
+            <form id='NewAccountForm' action="dashboard.php" method="post">
+                <input type="text" placeholder="Account's Name" name="ACC_name"/>
                 <br><br>
-                <input type="text" placeholder="Author's Name"/>
+                <input type="text" placeholder="Author's Name" name="ACC_author"/>
                 <br><br>
-                <input type="text" placeholder="Default Account Password"/>
+                <input type="text" placeholder="Default Account Password" name="ACC_password"/>
                 <br/>
                 <label for="option1">
-                    <input type="radio" id="option1" name="options" value="1">
+                    <input type="radio" id="option1" name="Permissions" value="0">
                     [Writer] Have the ability to add new articles only
                 </label><br>
 
                 <label for="option2">
-                    <input type="radio" id="option2" name="options" value="2">
+                    <input type="radio" id="option2" name="Permissions" value="1">
                     [Contributor] Have the ability to add new articles and edit or delete them
                 </label><br>
 
                 <label for="option3">
-                    <input type="radio" id="option3" name="options" value="3">
+                    <input type="radio" id="option3" name="Permissions" value="2">
                     [Editor] Can Access the (Overview) Screen in the dashboard
                 </label><br>
                 <label for="option4">
-                    <input type="radio" id="option4" name="options" value="4">
+                    <input type="radio" id="option4" name="Permissions" value="3">
                     [Manager] Can Add New Users or remove old users in dashboard
                 </label><br>
                 <label for="option5">
-                    <input type="radio" id="option5" name="options" value="5">
+                    <input type="radio" id="option5" name="Permissions" value="4">
                     [Administrator] Can Access The Project Settings Page And make changes.
                 </label>
                 <br><br>
   
-  <input type="submit" value="Submit">
+                <input type="submit" name="submit_new_acc">
 
             </form>
 <script>
