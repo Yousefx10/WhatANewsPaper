@@ -513,25 +513,25 @@ echo showarticlesnow();
                 <br/>
                 <label for="option1">
                     <input type="radio" id="option1" name="options" value="1">
-                    Option 1
+                    [Writer] Have the ability to add new articles only
                 </label><br>
 
                 <label for="option2">
                     <input type="radio" id="option2" name="options" value="2">
-                    Option 2
+                    [Contributor] Have the ability to add new articles and edit or delete them
                 </label><br>
 
                 <label for="option3">
                     <input type="radio" id="option3" name="options" value="3">
-                    Option 3
+                    [Editor] Can Access the (Overview) Screen in the dashboard
                 </label><br>
-                <label for="option3">
+                <label for="option4">
                     <input type="radio" id="option4" name="options" value="4">
-                    Option 4
+                    [Manager] Can Add New Users or remove old users in dashboard
                 </label><br>
-                <label for="option3">
+                <label for="option5">
                     <input type="radio" id="option5" name="options" value="5">
-                    Option 5
+                    [Administrator] Can Access The Project Settings Page And make changes.
                 </label>
                 <br><br>
   
