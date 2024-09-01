@@ -503,6 +503,39 @@ echo showarticlesnow();
             
             ?>
             <button>Add New User</button>
+            <br><br>
+            <form>
+                <input type="text" placeholder="Account's Name"/>
+                <br><br>
+                <input type="text" placeholder="Default Account Password"/>
+                <br/>
+                <label for="option1">
+                    <input type="radio" id="option1" name="options" value="1">
+                    Option 1
+                </label><br>
+
+                <label for="option2">
+                    <input type="radio" id="option2" name="options" value="2">
+                    Option 2
+                </label><br>
+
+                <label for="option3">
+                    <input type="radio" id="option3" name="options" value="3">
+                    Option 3
+                </label><br>
+                <label for="option3">
+                    <input type="radio" id="option4" name="options" value="4">
+                    Option 4
+                </label><br>
+                <label for="option3">
+                    <input type="radio" id="option5" name="options" value="5">
+                    Option 5
+                </label>
+                <br><br>
+  
+  <input type="submit" value="Submit">
+
+            </form>
 <script>
 //Changing User Password script.
 
